@@ -1,0 +1,377 @@
+<html>
+<head>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<style type="text/css">
+.ecosystem-infographic-container {
+  position: relative;
+  width: 92vw;
+  min-width: 1100px;
+  max-width: 1170px;
+  margin: 0 auto;
+  background: white;
+}
+
+.ecosystem-infographic-wrapper {
+  position: relative;
+  width: 0;
+  height: 0;
+  padding: 29.5212765957% 50%;
+}
+
+.ecosystem-infographic {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+.ecosystem-infographic__tradegecko {
+  position: absolute;
+  left: 30.2127659574%;
+  top: 26.1261261261%;
+  width: 25.5319148936%;
+  height: 50.6306306306%;
+}
+.ecosystem-infographic__tradegecko-text {
+  position: absolute;
+  bottom: 81.8505338078%;
+  right: 68.75%;
+  color: #1c4561;
+  transform-origin: 100% 50%;
+}
+.ecosystem-infographic__purchase-orders {
+  position: absolute;
+  left: 50.8510638298%;
+  top: 8.3063063063%;
+  width: 7.0212765957%;
+  height: 15.3153153153%;
+}
+.ecosystem-infographic__purchase-orders-text {
+  position: absolute;
+  bottom: 0;
+  left: 100%;
+  color: #00377D;
+  transform-origin: 0 50%;
+}
+
+.ecosystem-infographic__payment {
+  position: absolute;
+  top: 29.7297297297%;
+  left: 6.914893617%;
+  height: 23.4234234234%;
+  width: 18.085106383%;
+}
+.ecosystem-infographic__payment-card {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 38.2352941176%;
+}
+.ecosystem-infographic__payment-screen {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 80%;
+  height: auto;
+}
+.ecosystem-infographic__payment-text {
+  position: absolute;
+  bottom: 0;
+  right: 80%;
+  text-align: right;
+  color: #00377D;
+  transform-origin: 100% 50%;
+}
+.ecosystem-infographic__accounting {
+  position: absolute;
+  top: 71.1711711712%;
+  left: 10.4255319149%;
+  width: 14.4680851064%;
+  height: 18.1981981982%;
+}
+.ecosystem-infographic__accounting-text {
+  position: absolute;
+  bottom: 0;
+  right: 100%;
+  text-align: right;
+  color: #00377D;
+  transform-origin: 100% 50%;
+}
+.ecosystem-infographic__ecommerce {
+  position: absolute;
+  left: 45.8936170213%;
+  top: 72.6126126126%;
+  width: 14.4680851064%;
+  height: 18.1981981982%;
+}
+.ecosystem-infographic__ecommerce-integrations {
+  position: absolute;
+  bottom: 37.6237623762%;
+  right: 100%;
+  width: 73.5294117647%;
+  height: 24.7524752475%;
+  transform-origin: 100% 50%;
+}
+.ecosystem-infographic__ecommerce-text {
+  position: absolute;
+  bottom: 0;
+  left: 100%;
+  color: #00377D;
+  transform-origin: 0% 50%;
+}
+.ecosystem-infographic__b2b {
+  position: absolute;
+  left: 65.6808510638%;
+  top: 58.1981981982%;
+  width: 14.4680851064%;
+  height: 18.1981981982%;
+}
+.ecosystem-infographic__b2b-text {
+  position: absolute;
+  bottom: 0;
+  left: 100%;
+  color: #00377D;
+  transform-origin: 0% 50%;
+}
+.ecosystem-infographic__sales-orders {
+  position: absolute;
+  left: 85.7659574468%;
+  top: 46.6666666667%;
+  width: 7.0212765957%;
+  height: 15.3153153153%;
+}
+.ecosystem-infographic__sales-orders-text {
+  position: absolute;
+  bottom: 0;
+  left: 100%;
+  color: #00377D;
+  transform-origin: 0% 50%;
+}
+
+
+.ecosystem-infographic__transform {
+  transform-origin: 50% 50%;
+  transition-property: transform, filter, opacity;
+  transition-timing-function: ease-out;
+  transition-duration: 0.1s;
+  transition-delay: 0.1s;
+}
+.ecosystem-infographic__transform--iso {
+  transform: rotate(-30deg) skewX(-30deg) scaleY(0.86);
+}
+.ecosystem-infographic__transform svg {
+  position: absolute;
+}
+.ecosystem-infographic__transform .ecosystem-infographic__transform-fade {
+  padding: 10px;
+  margin: 0;
+  margin-bottom: -10px;
+  white-space: pre;
+  background: rgba(255, 255, 255, 0.8);
+  transform: scaleX(0);
+  transition: transform 0.1s;
+  pointer-events: none;
+}
+.ecosystem-infographic p {
+  font-size: 12.3076923077px;
+  line-height: 1.4;
+}
+.ecosystem-infographic__transform--half p {
+  font-size: 13.9130434783px;
+}
+.ecosystem-infographic:hover .ecosystem-infographic__transform, .ecosystem-infographic.mobile-hovering .ecosystem-infographic__transform {
+  opacity: 0.9;
+  transition-duration: 0.1s;
+}
+.ecosystem-infographic:hover .ecosystem-infographic__transform:hover, .ecosystem-infographic:hover .ecosystem-infographic__transform.mobile-hovering, .ecosystem-infographic.mobile-hovering .ecosystem-infographic__transform:hover, .ecosystem-infographic.mobile-hovering .ecosystem-infographic__transform.mobile-hovering {
+  z-index: 1;
+  transform: scale(1.3);
+  filter: grayscale(0);
+  transition-delay: 0s;
+  opacity: 1;
+  transition: transform cubic-bezier(0.3, 0.01, 0.31, 0), filter ease, opacity ease;
+  transition-duration: 0.1s;
+}
+.ecosystem-infographic:hover .ecosystem-infographic__transform:hover .ecosystem-infographic__transform-fade, .ecosystem-infographic:hover .ecosystem-infographic__transform.mobile-hovering .ecosystem-infographic__transform-fade, .ecosystem-infographic.mobile-hovering .ecosystem-infographic__transform:hover .ecosystem-infographic__transform-fade, .ecosystem-infographic.mobile-hovering .ecosystem-infographic__transform.mobile-hovering .ecosystem-infographic__transform-fade {
+  transition-delay: 0.1s;
+  transform: scaleX(1);
+  pointer-events: auto;
+}
+.ecosystem-infographic:hover .ecosystem-infographic__transform--half:hover, .ecosystem-infographic:hover .ecosystem-infographic__transform--half.mobile-hovering, .ecosystem-infographic.mobile-hovering .ecosystem-infographic__transform--half:hover, .ecosystem-infographic.mobile-hovering .ecosystem-infographic__transform--half.mobile-hovering {
+  transform: scale(1.15);
+}
+.ecosystem-infographic:hover .ecosystem-infographic__transform--iso > svg, .ecosystem-infographic.mobile-hovering .ecosystem-infographic__transform--iso > svg {
+  transition: filter 0.1s;
+}
+.ecosystem-infographic:hover .ecosystem-infographic__transform--iso:hover > svg, .ecosystem-infographic:hover .ecosystem-infographic__transform--iso.mobile-hovering > svg, .ecosystem-infographic.mobile-hovering .ecosystem-infographic__transform--iso:hover > svg, .ecosystem-infographic.mobile-hovering .ecosystem-infographic__transform--iso.mobile-hovering > svg {
+  filter: drop-shadow(0 2px 3px rgba(0, 0, 0, 0.2));
+}
+
+.svg-defs {
+  position: absolute;
+  visibility: hidden;
+  top: 0;
+  left: 0;
+  width: 0;
+  height: 0;
+  pointer-events: none;
+} 
+header {
+  text-align: center;
+  margin:  0 auto;
+  width: 50%;
+}
+header h1 {
+  color: #00377D;
+}
+.ecosystem-infographic-container img {
+border-radius: 10px;
+}
+
+button { 
+  cursor:pointer; 
+    background: none;
+    border: none;
+  }
+
+.modal {
+  visibility: hidden;
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  padding: 1.5rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: all 0.3s;
+}
+.modal_inner {
+  max-width: 42rem;
+  padding: 1.5rem;
+  border-radius: 2px;
+  background-color: #ffffff;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+  opacity: 0;
+  transform: scale(0.8);
+  transition: all 0.3s;
+}
+.modal_inner h1 {
+  color: #00377D;
+}
+.modal.-open {
+  visibility: visible;
+  background-color: rgba(0, 0, 0, 0.4);
+}
+.modal.-open .modal_inner {
+  opacity: 1;
+  transform: scale(1);
+}
+</style>
+</head>
+<body>
+  <header>  <h1>Episodios Patchers </h1>
+  <p>Patchers “Guardianes de internet”.  Es el contenido audiovisual creado  para promover el uso responsable y creativo de internet. Patchers es una miniserie de cinco capítulos que aborda temas como el ciberbullying, la seguridad en línea, la brecha digital, el uso excesivo de internet y la sexualidad.  </p></header>
+
+<div class="ecosystem-infographic-container"><div class="ecosystem-infographic-wrapper">
+  <div class="ecosystem-infographic mobile-hover">
+    <div class="ecosystem-infographic__tradegecko ecosystem-infographic__transform ecosystem-infographic__transform--half mobile-hover">
+      <p class="ecosystem-infographic__tradegecko-text ecosystem-infographic__transform-fade">Serie Patchers</p>
+<img src="pc.png">
+    </div>
+
+    <div class="ecosystem-infographic__purchase-orders ecosystem-infographic__transform ecosystem-infographic__transform--iso mobile-hover">
+      <p class="ecosystem-infographic__sales-orders-text ecosystem-infographic__transform-fade">Comic<br>Patchers</p>
+ <button data-target="modal1" class="button"><img src="comic.png"></button>
+    </div>
+
+
+    <div class="ecosystem-infographic__payment ecosystem-infographic__transform ecosystem-infographic__transform--iso mobile-hover">
+      <p class="ecosystem-infographic__payment-text ecosystem-infographic__transform-fade">CAPÍTULO 01<br>CIBERBULLYING</p>
+      <button data-target="modal2" class="button"><img src="ep1.png"></button>
+    </div>
+
+    <div class="ecosystem-infographic__accounting ecosystem-infographic__transform ecosystem-infographic__transform--iso mobile-hover">
+      <p class="ecosystem-infographic__accounting-text ecosystem-infographic__transform-fade">CAPÍTULO 02<br>BRECHA DIGITAL</p>
+    <button data-target="modal3" class="button"><img src="ep2.png"></button>
+    </div>
+
+    <div class="ecosystem-infographic__sales-orders ecosystem-infographic__transform ecosystem-infographic__transform--iso mobile-hover">
+      <p class="ecosystem-infographic__sales-orders-text ecosystem-infographic__transform-fade">CAPÍTULO 03<br>USO EXCESIVO DE INTERNET</p>
+    <button data-target="modal4" class="button"><img src="ep3.png"></button>
+    </div>
+
+    <div class="ecosystem-infographic__b2b ecosystem-infographic__transform ecosystem-infographic__transform--iso mobile-hover">
+      <p class="ecosystem-infographic__b2b-text ecosystem-infographic__transform-fade">CAPÍTULO 04<br>SEGURIDAD EN LÍNEA</p>
+      <button data-target="modal5" class="button"><img src="ep4.png"></button>
+    </div>
+
+    <div class="ecosystem-infographic__ecommerce ecosystem-infographic__transform ecosystem-infographic__transform--iso mobile-hover">
+      <p class="ecosystem-infographic__ecommerce-text ecosystem-infographic__transform-fade">CAPÍTULO 05<br>SEXUALIDAD</p>
+      <button data-target="modal6" class="button"><img src="ep5.png"></button>
+    </div>
+
+
+  </div>
+</div></div>
+
+
+
+<div class="modal" id="modal1">
+  <div class="modal_inner">
+    Puedes descargar el comic oficial dando <a href ="comic.pdf" target="_blank"> clic aquí</a>
+  </div>
+</div>
+
+<div class="modal" id="modal2">
+  <div class="modal_inner">
+    <h1>Ciberbullying</h1>
+    <p>El daño que sufren niños y adolescentes gracias a agresiones recibidas por medio de internet es conocido como #Ciberbullying. La prevención, detección y denuncia de estos casos son acciones necesarias para evitar que más personas sufran como Nati, a quien conocerás en este capítulo. ¿Cómo actuar frente a estas situaciones? Te lo contamos en #Patchers, Guardianes de Internet.</p>
+    <iframe width="670" height="350" src="https://www.youtube.com/embed/1VRZdOibo_0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+  </div>
+</div>
+<div class="modal" id="modal6">
+  <div class="modal_inner">
+    <h1>Sexualidad</h1>
+    <p>Compartir con tus hijos cuando se trata de su exploración sexual es clave para su desarrollo. En este capítulo conocerás a Dani, un joven que está descubriendo su sexualidad y buscando en internet información al respecto, y que necesitará la ayuda de sus amigos, familia y Goti.</p>
+<iframe width="670" height="350" src="https://www.youtube.com/embed/RmpzT-Cbnq4" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+  </div>
+</div>
+<div class="modal" id="modal3">
+  <div class="modal_inner">
+    <h1>Brecha digital</h1>
+    <p>La #BrechaDigital es la diferencia entre quienes tienen habilidades para  usar Internet y quienes no.  Aprender a identificarla y ayudar a reducirla, es una misión de todos. La  familia de Elías nos enseña qué es y por qué todos debemos participar de la vida digital.</p>
+    <iframe width="670" height="350" src="https://www.youtube.com/embed/1VRZdOibo_0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+  </div>
+</div>
+<div class="modal" id="modal4">
+  <div class="modal_inner">
+    <h1>Uso excesivo de internet</h1>
+    <p>¿Pasas largas horas usando internet y dejas de compartir con tus amigos y familiares? ¿Te has preguntado cuándo el uso de internet se vuelve un problema en tu vida o en tu familia? Descubre la historia de Nico, un adolescente experto en juegos en línea, y mira cómo su familia encuentra un camino para sobrepasar las situaciones que se generan por un uso excesivo de internet.</p>
+    <iframe width="670" height="350" src="https://www.youtube.com/embed/Z6q2o-NaKI4" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+  </div>
+</div>
+<div class="modal" id="modal5">
+  <div class="modal_inner">
+    <h1>Seguridad en línea</h1>
+    <p>¿Te gustaría saber cómo cuidar la información personal de tu hijo en Internet? Descubre junto a Valen, una niña entusiasta, amante de la danza, la importancia de conocer sobre redes sociales, los criterios de seguridad y su potencial en el desarrollo de los intereses de niños, niñas y adolescentes.</p>
+    <iframe width="670" height="350" src="https://www.youtube.com/embed/cuwV0gc9Nk0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+  </div>
+</div>
+
+<script type="text/javascript">
+
+$(".button[data-target]").click(function() {
+  $("#" + this.dataset.target).toggleClass("-open")
+})
+
+$(".modal").click(function(e) {
+  if (e.target === this) {
+    $(this).toggleClass("-open")
+  }
+})
+
+</script>
+</body>
+</html>
