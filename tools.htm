@@ -6,6 +6,35 @@
   <title></title>
   <style type="text/css">
 
+   .box img {
+  /* adjust the below to control the 3D effect */
+  --x: 10px;
+  --y: 20px;
+  transform: perspective(1000px) rotateX(var(--_a,40deg));
+  /* */
+  clip-path: polygon(       
+     var(--y)              var(--y),       
+     calc(100% - var(--y)) var(--y),       
+     calc(100% - var(--y)) calc(100% - var(--y)),       
+     calc(100% - var(--y) - var(--x)) var(--_c,100%),       
+     calc(var(--x) + var(--y))        var(--_c,100%),      
+     var(--y)        calc(100% - var(--y))       
+     );
+  outline-offset: calc(-1*var(--y));
+  padding: var(--y) var(--y) 0 var(--y);
+  transition: 1s;
+  width: 500px;
+}
+.box:hover img {
+  --_a: 0deg;
+  --_c: calc(100% - var(--y));
+}
+
+/* the below is irrelevant to the 3D effect */
+.box {
+  cursor: default;
+}
+
     * {
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
@@ -22,15 +51,6 @@ html {
   font-family: cronoscaption;
   margin: 0 auto;
   width: 70%;
-}
-
-.iphone-l {
-  width: 600px;
-  height: 1061px;
-  margin: 0 auto;
-  margin-top: 50px;
-  background: transparent url("iphone.png") no-repeat center center;
-  position: relative;
 }
 
 @font-face {
@@ -118,7 +138,7 @@ color: #00377D;
                     <div class="video-type">
                         <p>Según el profesor Eulises Domínguez, es importante empezar con una valoración previa de la calidad y pertinencia de los recursos, crear un plan B por si alguna de estas herramientas o la conexión a Internet fallan y… Si quieres saber más, dale play y conoce las acciones claves para tener en cuenta a la hora de usar las Tic en las clases. </p>
                     </div>
-                    <iframe class="vimeo-player" src="https://player.vimeo.com/video/456304030?title=0&amp;byline=0&amp;portrait=0&amp;badge=0api=1" width="540" height="376" frameborder="0" webkitallowfullscreen="" mozallowfullscreen="" allowfullscreen=""></iframe>
+                    <iframe class="vimeo-player" src="https://player.vimeo.com/video/456304030?title=0&amp;byline=0&amp;portrait=0&amp;badge=0api=1" width="520" height="376" frameborder="0" webkitallowfullscreen="" mozallowfullscreen="" allowfullscreen=""></iframe>
                 </div>
             </div>
 
@@ -133,7 +153,7 @@ color: #00377D;
                     <div class="video-type">
                         <p>A lo largo de su carrera el profesor Eulises Domínguez se ha vinculado con redes de otros profesores en otras partes del mundo, esto le ha permitido acceder a información actualizada sobre los últimos recursos tecnológicos, buenas prácticas y recomendaciones. Dale play y conoce, mediante su experiencia, cómo ha logrado estar actualizado en el uso de las TIC y cómo les ha dado un sentido pedagógico. </p>
                     </div>
-                    <iframe class="vimeo-player" src="https://player.vimeo.com/video/456304656?title=0&amp;byline=0&amp;portrait=0&amp;badge=0api=1" width="540" height="376" frameborder="0" webkitallowfullscreen="" mozallowfullscreen="" allowfullscreen=""></iframe>
+                    <iframe class="vimeo-player" src="https://player.vimeo.com/video/456304656?title=0&amp;byline=0&amp;portrait=0&amp;badge=0api=1" width="520" height="376" frameborder="0" webkitallowfullscreen="" mozallowfullscreen="" allowfullscreen=""></iframe>
                 </div>
             </div>
 
@@ -147,7 +167,7 @@ color: #00377D;
                     <div class="video-type">
                         <p>Ten muy claro qué quieres enseñar, qué recursos TIC existen en la web que ayuden a enriquecer el proceso de enseñanza y hacer uso de herramientas de fácil acceso son algunas de las recomendaciones que nos brinda el profesor. Dale play y conoce más. </p>
                     </div>
-                    <iframe class="vimeo-player" src="https://player.vimeo.com/video/456305380?title=0&amp;byline=0&amp;portrait=0&amp;badge=0api=1" width="540" height="376" frameborder="0" webkitallowfullscreen="" mozallowfullscreen="" allowfullscreen=""></iframe>
+                    <iframe class="vimeo-player" src="https://player.vimeo.com/video/456305380?title=0&amp;byline=0&amp;portrait=0&amp;badge=0api=1" width="520" height="376" frameborder="0" webkitallowfullscreen="" mozallowfullscreen="" allowfullscreen=""></iframe>
                 </div>
             </div>
 
@@ -156,23 +176,9 @@ color: #00377D;
 </h1>
                         <p>Según las estadísticas a fecha del 1 de enero de 2021 que elaboró AppBrain, actualmente hay más de tres millones de apps que ofrecen música, revistas, libros, videos, películas, además de miles de herramientas para la formación y el aprendizaje. Te compartimos algunas que recomienda el profesor Eulises Domínguez. </p>
 
-
-                            <div class="iphone-l">
-      <div class="screen-ll">
-        <div id="wrapper">
-          <div class="menu-l">
-            <div id="js-content" class="content-ll">
-              <div class="section-b"></div>
-              <div class="section-b is-watermellon"></div>
-              <div class="section-b is-fish"></div>
-              <div class="section-b is-donut"></div>
-              <div class="section-b is-icecreame"></div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-
+<div class="box">
+  <img src="https://makaiaco.github.io/Contenidosweb/iphone.png">
+</div>
 
     <h1>¿Quieres conocer de qué se tratan? Dale play y escucha por qué han sido de utilidad para el profesor Eulises Domínguez y cómo te podrían ayudar en clase.</h1>
 <div class="video-slide left" >
@@ -182,7 +188,7 @@ color: #00377D;
 
 Si aún no has empezado a integrar estas herramientas a tus clases, anímate a buscar y construir modelos de formación abiertos y participativos. Con certeza encontrarás una cantidad infinita de recursos que les darán una dinámica renovada a los procesos pedagógicos y formativos.</p>
                     </div>
-                    <iframe class="vimeo-player" src="https://player.vimeo.com/video/456306558?title=0&amp;byline=0&amp;portrait=0&amp;badge=0api=1" width="540" height="376" frameborder="0" webkitallowfullscreen="" mozallowfullscreen="" allowfullscreen=""></iframe>
+                    <iframe class="vimeo-player" src="https://player.vimeo.com/video/456306558?title=0&amp;byline=0&amp;portrait=0&amp;badge=0api=1" width="520" height="376" frameborder="0" webkitallowfullscreen="" mozallowfullscreen="" allowfullscreen=""></iframe>
                 </div>
             </div>
 
