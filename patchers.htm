@@ -99,8 +99,8 @@
 }
 .ecosystem-infographic__ecommerce {
   position: absolute;
-  left: 45.8936170213%;
-  top: 72.6126126126%;
+  left: 35.8936170213%;
+  top: 83.6126126126%;
   width: 14.4680851064%;
   height: 18.1981981982%;
 }
@@ -135,8 +135,8 @@
 }
 .ecosystem-infographic__sales-orders {
   position: absolute;
-  left: 85.7659574468%;
-  top: 46.6666666667%;
+  left: 65.7659574468%;
+  top: 25.6666666667%;
   width: 7.0212765957%;
   height: 15.3153153153%;
 }
@@ -163,14 +163,16 @@
   position: absolute;
 }
 .ecosystem-infographic__transform .ecosystem-infographic__transform-fade {
-  padding: 10px;
+  padding: 15px;
   margin: 0;
   margin-bottom: -10px;
   white-space: pre;
-  background: rgba(255, 255, 255, 0.8);
+  background: #00377D;
+  color: #fff!important;
   transform: scaleX(0);
   transition: transform 0.1s;
   pointer-events: none;
+  border-radius: 3px;
 }
 .ecosystem-infographic p {
   font-size: 12.3076923077px;
@@ -206,16 +208,6 @@
 .ecosystem-infographic:hover .ecosystem-infographic__transform--iso:hover > svg, .ecosystem-infographic:hover .ecosystem-infographic__transform--iso.mobile-hovering > svg, .ecosystem-infographic.mobile-hovering .ecosystem-infographic__transform--iso:hover > svg, .ecosystem-infographic.mobile-hovering .ecosystem-infographic__transform--iso.mobile-hovering > svg {
   filter: drop-shadow(0 2px 3px rgba(0, 0, 0, 0.2));
 }
-
-.svg-defs {
-  position: absolute;
-  visibility: hidden;
-  top: 0;
-  left: 0;
-  width: 0;
-  height: 0;
-  pointer-events: none;
-} 
 header {
   text-align: center;
   margin:  0 auto;
@@ -268,47 +260,53 @@ button {
   opacity: 1;
   transform: scale(1);
 }
+body {
+  font-family: cronos pro;
+}
+strong {
+  font-size: 1.2rem;
+}
 </style>
 </head>
 <body>
-  <header>  <h1>Episodios Patchers </h1>
-  <p>Patchers “Guardianes de internet”.  Es el contenido audiovisual creado  para promover el uso responsable y creativo de internet. Patchers es una miniserie de cinco capítulos que aborda temas como el ciberbullying, la seguridad en línea, la brecha digital, el uso excesivo de internet y la sexualidad.  </p></header>
+  <header>  <h1>Miniserie Patchers</h1>
+  <p>Patchers “Guardianes de internet”. Es una miniserie de 5 capítulos, creada para promover el uso responsable y creativo de internet. Conoce temas como el ciberbullying, seguridad en línea, brecha digital, uso excesivo de internet y la sexualidad.</p></header>
 
 <div class="ecosystem-infographic-container"><div class="ecosystem-infographic-wrapper">
   <div class="ecosystem-infographic mobile-hover">
     <div class="ecosystem-infographic__tradegecko ecosystem-infographic__transform ecosystem-infographic__transform--half mobile-hover">
-      <p class="ecosystem-infographic__tradegecko-text ecosystem-infographic__transform-fade">Serie Patchers</p>
+      <p class="ecosystem-infographic__tradegecko-text ecosystem-infographic__transform-fade"><strong>Serie Patchers</strong></p>
 <img src="pc.png">
     </div>
 
     <div class="ecosystem-infographic__purchase-orders ecosystem-infographic__transform ecosystem-infographic__transform--iso mobile-hover">
-      <p class="ecosystem-infographic__sales-orders-text ecosystem-infographic__transform-fade">Comic<br>Patchers</p>
+      <p class="ecosystem-infographic__sales-orders-text ecosystem-infographic__transform-fade"><strong>Comic</strong><br>Patchers</p>
  <button data-target="modal1" class="button"><img src="comic.png"></button>
     </div>
 
 
     <div class="ecosystem-infographic__payment ecosystem-infographic__transform ecosystem-infographic__transform--iso mobile-hover">
-      <p class="ecosystem-infographic__payment-text ecosystem-infographic__transform-fade">CAPÍTULO 01<br>CIBERBULLYING</p>
+      <p class="ecosystem-infographic__payment-text ecosystem-infographic__transform-fade"><strong>Capítulo 01</strong><br>Ciberbullying</p>
       <button data-target="modal2" class="button"><img src="ep1.png"></button>
     </div>
 
     <div class="ecosystem-infographic__accounting ecosystem-infographic__transform ecosystem-infographic__transform--iso mobile-hover">
-      <p class="ecosystem-infographic__accounting-text ecosystem-infographic__transform-fade">CAPÍTULO 02<br>BRECHA DIGITAL</p>
+      <p class="ecosystem-infographic__accounting-text ecosystem-infographic__transform-fade"><strong>Capítulo 02</strong><br>Brecha digital</p>
     <button data-target="modal3" class="button"><img src="ep2.png"></button>
     </div>
 
     <div class="ecosystem-infographic__sales-orders ecosystem-infographic__transform ecosystem-infographic__transform--iso mobile-hover">
-      <p class="ecosystem-infographic__sales-orders-text ecosystem-infographic__transform-fade">CAPÍTULO 03<br>USO EXCESIVO DE INTERNET</p>
+      <p class="ecosystem-infographic__sales-orders-text ecosystem-infographic__transform-fade"><strong>Capítulo 03</strong><br>Uso excesivo de internet</p>
     <button data-target="modal4" class="button"><img src="ep3.png"></button>
     </div>
 
     <div class="ecosystem-infographic__b2b ecosystem-infographic__transform ecosystem-infographic__transform--iso mobile-hover">
-      <p class="ecosystem-infographic__b2b-text ecosystem-infographic__transform-fade">CAPÍTULO 04<br>SEGURIDAD EN LÍNEA</p>
+      <p class="ecosystem-infographic__b2b-text ecosystem-infographic__transform-fade"><strong>Capítulo 04</strong><br>Seguridad en línea</p>
       <button data-target="modal5" class="button"><img src="ep4.png"></button>
     </div>
 
     <div class="ecosystem-infographic__ecommerce ecosystem-infographic__transform ecosystem-infographic__transform--iso mobile-hover">
-      <p class="ecosystem-infographic__ecommerce-text ecosystem-infographic__transform-fade">CAPÍTULO 05<br>SEXUALIDAD</p>
+      <p class="ecosystem-infographic__ecommerce-text ecosystem-infographic__transform-fade"><strong>Capítulo 05</strong><br>Sexualidad</p>
       <button data-target="modal6" class="button"><img src="ep5.png"></button>
     </div>
 
