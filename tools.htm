@@ -1,12 +1,346 @@
-<!DOCTYPE html>
-<html>
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title></title>
-  <style type="text/css">
+<style type="text/css">
+  @charset "UTF-8";
+:root {
+  --width: 100vw;
+  --full-width: 100vw;
+  --angle: -11deg;
+  /*-----------------
+  Magic Number Alert:
 
-   .box img {
+  the 0.09719 is calculated by this formula:
+  tan(11°) / 2
+  11° is the current skewY value.
+  ------------------*/
+  --magic-number: 0.09719;
+  --skew-padding: calc(var(--width) * var(--magic-number));
+  --clip-padding: calc(var(--full-width) * var(--magic-number));
+}
+@media (min-width: 42em) {
+  :root {
+    --width: 42rem;
+  }
+}
+
+.diagonal-box {
+  position: relative;
+  padding: var(--skew-padding) 0;
+  margin-top: -1px;
+}
+.diagonal-box:before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  transform: skewy(var(--angle));
+  transform-origin: 50% 0;
+  outline: 1px solid transparent;
+  backface-visibility: hidden;
+}
+
+.bg-one:before {
+  background-image: linear-gradient(45deg, #00C8FF, #00377D);
+}
+.bg-one {
+  font-size: 0.8rem!important;
+}
+.bg-two:before {
+  background-image: linear-gradient(-135deg, #FFBE00, #FFBE00);
+}
+.bg-two  {
+  color: #00377D!important;
+}
+.bg-three:before {
+  background-image: linear-gradient(-135deg, #00C8FF, #00377D);
+}
+
+.content {
+  max-width: var(--width);
+  margin: 0 auto;
+  padding: 1.5em;
+  position: relative;
+  /* -----------
+  enable the border to see, that the content
+  perfectly fits into the section withou
+  bleeding into the adjecting areas:
+  ------------ */
+}
+
+/* --------------------
+Clip Path Update
+-------------------- */
+.clip-path {
+  position: relative;
+  margin-top: calc( ( var(--clip-padding) * -1 ) - 2px );
+  background-size: 0.5em 0.5em, 100% 100%;
+  padding: calc( ( var(--clip-padding) * 2 ) - ( var(--clip-padding) - var(--skew-padding) ) ) 0 4em;
+  clip-path: polygon(0% calc(var(--clip-padding) * 2), 100% 0%, 100% 100%, 0% 100%);
+  -webkit-clip-path: polygon(0% calc(var(--clip-padding) * 2), 100% 0%, 100% 100%, 0% 100%);
+}
+
+/* --------------------
+Presentational Styles 
+-------------------- */
+*, *:before, *:after {
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 100%;
+  transition: font-size 0.2s linear;
+}
+@media (min-width: 70em) {
+  html {
+    font-size: 125%;
+  }
+}
+
+body {
+  background: #003;
+  padding-top: 8em;
+  color: #fff;
+  font-family: "Raleway", sans-serif;
+}
+
+h1 {
+  text-align: center;
+  margin: 0 auto 1em;
+  padding: 0 1em;
+  max-width: 42rem;
+  line-height: 1.2;
+  transform: skewY(var(--angle));
+  font-size: 3em;
+  text-transform: uppercase;
+  font-weight: 900;
+}
+
+h2 {
+  font-size: 2.5em;
+  margin: 0 0 0.5em;
+  font-weight: 900;
+}
+
+.intro {
+  font-size: 1.25em;
+  transform: skewY(var(--angle));
+  margin: 0em auto 0em;
+  text-align: center;
+  background: #fff;
+  color: #003;
+  font-weight: 900;
+  padding: 0.5em;
+  text-transform: uppercase;
+}
+.intro a {
+  background-image: linear-gradient(transparent 90%, 0, #003 100%);
+  background-image: none;
+  border-bottom: 4px solid;
+  transition: none;
+}
+.intro a:hover {
+  border-color: #a06;
+  opacity: 1;
+}
+
+p {
+  font-size: 1.1em;
+  margin: 0;
+  line-height: 1.5;
+}
+p + p, svg + p {
+  margin-top: 1em;
+}
+p code {
+  background: #0033;
+  padding: 0.125em 0.375em;
+  border-radius: 0.125em;
+}
+@media (min-width: 35em) {
+  p code {
+    white-space: nowrap;
+  }
+}
+p a {
+  color: inherit;
+  text-decoration: none;
+  background-image: linear-gradient(transparent 90%, 0, #fffa 100%);
+  padding: 0.125em 0;
+  transition: opacity 0.3s ease-out;
+}
+p a:hover {
+  text-decoration: none;
+  opacity: 0.8;
+}
+
+.columns {
+  display: flex;
+  margin: 2em -1em;
+}
+
+.figure {
+  display: block;
+  width: 100%;
+  margin: 0 1em;
+}
+.figure svg {
+  display: block;
+  width: 100%;
+}
+.figure .object {
+  transform-origin: 140px 140px;
+}
+.figure .object--rotate {
+  animation: rotate 3s ease-in-out alternate infinite;
+}
+.figure .object--skew {
+  animation: skew 3s ease-in-out alternate infinite;
+}
+.figure .object--skew-pause {
+  animation: skew-pause 6s ease-in-out infinite;
+}
+.figure .object--skew-pause-alt {
+  animation: skew-pause-alt 6s ease-in-out infinite;
+}
+.figure figcaption {
+  margin-top: 0.5em;
+  line-height: 1.5;
+  font-weight: 700;
+  opacity: 0.9;
+}
+
+@keyframes rotate {
+  0% {
+    transform: rotate(0deg);
+  }
+  50% {
+    transform: rotate(-11deg);
+  }
+  100% {
+    transform: rotate(-11deg) scaleX(1.2);
+  }
+}
+@keyframes skew {
+  to {
+    transform: skewY(-11deg);
+  }
+}
+@keyframes skew-pause {
+  0%, 70%, 100% {
+    transform: skewY(0deg);
+  }
+  20%, 50% {
+    transform: skewY(-11deg);
+  }
+}
+@keyframes skew-pause-alt {
+  0%, 40%, 100% {
+    transform: skewY(0deg);
+  }
+  20%, 30% {
+    transform: skewY(-11deg);
+  }
+}
+.formula {
+  font-family: monospace;
+  font-size: 1.5em;
+  display: block;
+  margin: 1em auto;
+  text-align: center;
+}
+@media (min-width: 26em) {
+  .formula {
+    font-size: 2em;
+  }
+}
+
+.boxes {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-gap: 3%;
+  margin: 2em 0;
+  --translation: 0;
+}
+.boxes .box {
+  width: 100%;
+  height: 0;
+  padding-bottom: 100%;
+  border: 1px solid #fff;
+  background: #fff3;
+  transform: translateY(var(--translation));
+  animation: translate 3s ease-in-out infinite;
+}
+.boxes .box:nth-child(1) {
+  --translation: calc(var(--skew-padding) * 1.5);
+}
+.boxes .box:nth-child(2) {
+  --translation: calc(var(--skew-padding) * 1);
+}
+.boxes .box:nth-child(3) {
+  --translation: calc(var(--skew-padding) * 0.5);
+}
+.boxes .box:nth-child(4) {
+  --translation: calc(var(--skew-padding) * 0);
+}
+
+@keyframes translate {
+  0%, 20%, 100% {
+    transform: translateY(0);
+  }
+  50%, 70% {
+    transform: translateY(var(--translation));
+  }
+}
+/* ---------------------------------
+   Interactive Controls
+--------------------------------- */
+.controls {
+  background: #FFF3;
+  z-index: 5;
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  border-radius: 0 0 0.5em 0.5em;
+  max-width: 90%;
+}
+.controls__headline {
+  color: #fff;
+  margin: 0.75em 1.125em 0.625em;
+  font-size: 1em;
+  text-align: center;
+  font-weight: 400;
+}
+
+.angle-control {
+  padding: 0.75em 0.625em 0.625em;
+  margin: 0 0.5em;
+  font-size: 1em;
+  border-top: 1px solid #fff3;
+  display: flex;
+}
+.angle-control > * {
+  vertical-align: middle;
+  margin: 0 0.5em;
+}
+.angle-control span {
+  display: inline-block;
+  min-width: 6ch;
+}
+.angle-control input {
+  width: 8em;
+  flex-shrink: 1;
+}
+
+.result {
+  text-align: right;
+}
+
+[hidden] {
+  display: none;
+}
+
+.box img {
   /* adjust the below to control the 3D effect */
   --x: 10px;
   --y: 20px;
@@ -40,159 +374,76 @@
   -moz-box-sizing: border-box;
   box-sizing: border-box;
 }
-body,
-html {
-  width: 100%;
-  height: 100%;
-  padding: 0;
-  font-family: monospace;
-  background-color: #eeebf0;
-  position: relative;
-  font-family: cronoscaption;
-  margin: 0 auto;
-  width: 70%;
-}
+</style>
+<script type="text/javascript">
+  
+</script>
 
-@font-face {
+<div class="diagonal-box">
+  <div class="content">
+    <h1>¿Cómo integrar herramientas y contenidos digitales en las aulas de clase?</h1>
+    <p class="intro">
+      Si estás buscando fomentar procesos innovadores en las clases y motivar la participación de tus estudiantes a través de los medios digitales, escucha al docente Eulises Domínguez de la Universidad del Norte, quien nos cuenta por medio de su experiencia como la interactividad propia en los dispositivos permite la apropiación crítica del conocimiento y la construcción de comunidades de aprendizaje.</a>.    
+    </p>
+  </div>
+</div>
+<div class="diagonal-box bg-one">
+  <div class="content">
 
-font-family: cronoscaption;
-src: url(Cronos-Pro-Caption_12437.woff);
-}
-h1 { 
-color: #00377D;
-}
-
-
-.video-type a {
-  color: #5B738A;
-  font-size: 14px;
-  line-height: 21px;
-}
-
-.video-slide {
-  background-color: #fff;
-  margin: 40px auto;
-  max-width: 953px;
-  position: relative;
-  border: 0;
-  padding-top: 10px;
-}
-
-.video-slide iframe {
-  display: inline-block;
-  margin-bottom: 0;
-  vertical-align: top;
-}
-
-.video-slide:nth-child(odd):after {
-  content: "";
-  position: absolute;
-  top: 0;
-  width: 100%;
-  height: 10px;
-  background: linear-gradient(to left, #00377D 0%, #00C8FF 100%);
-}
-
-.video-slide:nth-child(even):after {
-  content: "";
-  position: absolute;
-  top: 0;
-  width: 100%;
-  height: 10px;
-  background: linear-gradient(to right, #7c4490 0%, #00c9c9 100%);
-}
-
-.video-type {
-  display: inline-block;
-  margin: 25px;
-  max-width: 230px;
-  text-align: left;
-  vertical-align: bottom;
-}
-
-.left .video-type {
-  bottom: 0;
-  left: 68.6%;
-  position: absolute;
-}
-
-  </style>
-</head>
-<body>
-  <h1>¿Cómo integrar herramientas y contenidos digitales en las aulas de clase?</h1>
-  <p>Si estás buscando fomentar procesos innovadores en las clases y motivar la participación de tus estudiantes a través de los medios digitales, escucha al docente Eulises Domínguez de la Universidad del Norte, quien nos cuenta por medio de su experiencia como la interactividad propia en los dispositivos permite la apropiación crítica del conocimiento y la construcción de comunidades de aprendizaje. </p>
   <p>Además, la integración de las herramientas y contenidos digitales en el proceso de enseñanza es una gran oportunidad para cautivar la atención de tus estudiantes y promover dinámicas en las que ellos encuentren motivaciones para participar y compartir sus propias ideas con sus compañeros y amigos.</p>
-  <p>La integración de herramientas y contenidos disponibles en internet, tales como, blogs, foros, bibliotecas digitales, laboratorios virtuales, herramientas colaborativas, redes de apoyo, aplicaciones, entre otros, al incorporarlos en las aulas de clase ofrecen poderosos recursos para alimentar la motivación de los estudiantes y transformar dinámicas escolares que se nutren de distintos paradigmas. </p>
 <p>La integración de herramientas y contenidos disponibles en internet, tales como, blogs, foros, bibliotecas digitales, laboratorios virtuales, herramientas colaborativas, redes de apoyo, aplicaciones, entre otros, al incorporarlos en las aulas de clase ofrecen poderosos recursos para alimentar la motivación de los estudiantes y transformar dinámicas escolares que se nutren de distintos paradigmas. </p>
 <p>Dada la implementación de nuevas tecnologías es posible descubrir nuevos procesos y recursos, como simuladores, software educativos, documentos interactivos y colaborativos, videoconferencias y plataformas virtuales que integran procesos de socialización y propician el aprendizaje. La cooperación es el elemento fundamental de estos medios tecnológicos en los que se construyen comunidades de aprendizaje que superan las desigualdades y profundizan en procesos solidarios. </p>
 <p>Exploremos sobre la integración de herramientas y contenidos disponibles en internet, por medio de la experiencia de Eulises Domínguez Merlano, profesor de la Universidad del Norte de Barranquilla, quien es conocido por ser un precursor de las tecnologías de la información y las comunicaciones (TIC) en sus clases. Conoce cada una de sus prácticas: <b>dale play</b>.  
 
 <br /><span>También te puede interesar: ¿Qué puedo hacer para mejorar el uso de Internet que hacen mis hijos?</span> </p>
 
-<h1>
-  1. ¿Cómo integrar los dispositivos digitales, las herramientas y los contenidos de Internet en las clases?
-</h1>
-
-<div class="video-slide left" >
-              <div class="content-wrapper">
-                    <div class="video-type">
-                        <p>Según el profesor Eulises Domínguez, es importante empezar con una valoración previa de la calidad y pertinencia de los recursos, crear un plan B por si alguna de estas herramientas o la conexión a Internet fallan y… Si quieres saber más, dale play y conoce las acciones claves para tener en cuenta a la hora de usar las Tic en las clases. </p>
-                    </div>
-                    <iframe class="vimeo-player" src="https://player.vimeo.com/video/456304030?title=0&amp;byline=0&amp;portrait=0&amp;badge=0api=1" width="520" height="376" frameborder="0" webkitallowfullscreen="" mozallowfullscreen="" allowfullscreen=""></iframe>
-                </div>
-            </div>
-
-
-
-<h1>
-2. ¿Cómo se documenta para estar siempre actualizado?
-</h1>
-
-<div class="video-slide left" >
-              <div class="content-wrapper">
-                    <div class="video-type">
-                        <p>A lo largo de su carrera el profesor Eulises Domínguez se ha vinculado con redes de otros profesores en otras partes del mundo, esto le ha permitido acceder a información actualizada sobre los últimos recursos tecnológicos, buenas prácticas y recomendaciones. Dale play y conoce, mediante su experiencia, cómo ha logrado estar actualizado en el uso de las TIC y cómo les ha dado un sentido pedagógico. </p>
-                    </div>
-                    <iframe class="vimeo-player" src="https://player.vimeo.com/video/456304656?title=0&amp;byline=0&amp;portrait=0&amp;badge=0api=1" width="520" height="376" frameborder="0" webkitallowfullscreen="" mozallowfullscreen="" allowfullscreen=""></iframe>
-                </div>
-            </div>
-
-
-<h1>
-3. Recomendaciones para profesores que están transitando o quieren iniciar el camino de lo análogo (tradicional) a lo digital. 
-</h1>
-
-<div class="video-slide left" >
-              <div class="content-wrapper">
-                    <div class="video-type">
-                        <p>Ten muy claro qué quieres enseñar, qué recursos TIC existen en la web que ayuden a enriquecer el proceso de enseñanza y hacer uso de herramientas de fácil acceso son algunas de las recomendaciones que nos brinda el profesor. Dale play y conoce más. </p>
-                    </div>
-                    <iframe class="vimeo-player" src="https://player.vimeo.com/video/456305380?title=0&amp;byline=0&amp;portrait=0&amp;badge=0api=1" width="520" height="376" frameborder="0" webkitallowfullscreen="" mozallowfullscreen="" allowfullscreen=""></iframe>
-                </div>
-            </div>
-
-<h1>
-4. 6 aplicaciones o herramientas para incorporar en el aula:
-</h1>
-                        <p>Según las estadísticas a fecha del 1 de enero de 2021 que elaboró AppBrain, actualmente hay más de tres millones de apps que ofrecen música, revistas, libros, videos, películas, además de miles de herramientas para la formación y el aprendizaje. Te compartimos algunas que recomienda el profesor Eulises Domínguez. </p>
-
-<div class="box">
-  <img src="iphone.png">
+  </div>
 </div>
 
-    <h1>¿Quieres conocer de qué se tratan? Dale play y escucha por qué han sido de utilidad para el profesor Eulises Domínguez y cómo te podrían ayudar en clase.</h1>
-<div class="video-slide left" >
-              <div class="content-wrapper">
-                    <div class="video-type">
-                        <p>También te puede interesar: ¿La tecnología realmente mejora el aprendizaje?<br>
+<div class="diagonal-box bg-two">
+  <div class="content">
+    <h2>1. ¿Cómo integrar los dispositivos digitales, las herramientas y los contenidos de Internet en las clases?</h2>
+<p>Según el profesor Eulises Domínguez, es importante empezar con una valoración previa de la calidad y pertinencia de los recursos, crear un plan B por si alguna de estas herramientas o la conexión a Internet fallan y… Si quieres saber más, dale play y conoce las acciones claves para tener en cuenta a la hora de usar las Tic en las clases. </p><br>
+                    <iframe class="vimeo-player" src="https://player.vimeo.com/video/456304030?title=0&amp;byline=0&amp;portrait=0&amp;badge=0api=1" width="720" height="376" frameborder="0" webkitallowfullscreen="" mozallowfullscreen="" allowfullscreen=""></iframe>
+  </div>
+</div>
 
+<div class="diagonal-box bg-three">
+  <div class="content">
+    <h2>2. ¿Cómo se documenta para estar siempre actualizado?</h2>
+    <p>
+A lo largo de su carrera el profesor Eulises Domínguez se ha vinculado con redes de otros profesores en otras partes del mundo, esto le ha permitido acceder a información actualizada sobre los últimos recursos tecnológicos, buenas prácticas y recomendaciones. Dale play y conoce, mediante su experiencia, cómo ha logrado estar actualizado en el uso de las TIC y cómo les ha dado un sentido pedagógico.
+    </p> <br>                   <iframe class="vimeo-player" src="https://player.vimeo.com/video/456304656?title=0&amp;byline=0&amp;portrait=0&amp;badge=0api=1" width="720" height="376" frameborder="0" webkitallowfullscreen="" mozallowfullscreen="" allowfullscreen=""></iframe>
+  </div>
+</div>
+
+<div class="diagonal-box bg-one">
+  <div class="content">
+    <h2>3. Recomendaciones para profesores que están transitando o quieren iniciar el camino de lo análogo (tradicional) a lo digital.</h2>
+    <p>Ten muy claro qué quieres enseñar, qué recursos TIC existen en la web que ayuden a enriquecer el proceso de enseñanza y hacer uso de herramientas de fácil acceso son algunas de las recomendaciones que nos brinda el profesor. Dale play y conoce más.</p><br>
+                    <iframe class="vimeo-player" src="https://player.vimeo.com/video/456305380?title=0&amp;byline=0&amp;portrait=0&amp;badge=0api=1" width="720" height="376" frameborder="0" webkitallowfullscreen="" mozallowfullscreen="" allowfullscreen=""></iframe>
+
+  </div>
+</div>
+
+<div class="diagonal-box bg-two">
+  <div class="content">
+    <h2>4. 6 aplicaciones o herramientas para incorporar en el aula:</h2>
+    <p>
+Según las estadísticas a fecha del 1 de enero de 2021 que elaboró AppBrain, actualmente hay más de tres millones de apps que ofrecen música, revistas, libros, videos, películas, además de miles de herramientas para la formación y el aprendizaje. Te compartimos algunas que recomienda el profesor Eulises Domínguez.
+    </p>
+
+    <div class="box">
+  <img src="iphone.png">
+</div>
+  </div>
+</div>
+<div class="clip-path">
+  <div class="content">
+    <h2>¿Quieres conocer de qué se tratan? Dale play y escucha por qué han sido de utilidad para el profesor Eulises Domínguez y cómo te podrían ayudar en clase.</h2>
+    <p>También te puede interesar: ¿La tecnología realmente mejora el aprendizaje?
 Si aún no has empezado a integrar estas herramientas a tus clases, anímate a buscar y construir modelos de formación abiertos y participativos. Con certeza encontrarás una cantidad infinita de recursos que les darán una dinámica renovada a los procesos pedagógicos y formativos.</p>
-                    </div>
-                    <iframe class="vimeo-player" src="https://player.vimeo.com/video/456306558?title=0&amp;byline=0&amp;portrait=0&amp;badge=0api=1" width="520" height="376" frameborder="0" webkitallowfullscreen="" mozallowfullscreen="" allowfullscreen=""></iframe>
-                </div>
-            </div>
+<br>                    <iframe class="vimeo-player" src="https://player.vimeo.com/video/456306558?title=0&amp;byline=0&amp;portrait=0&amp;badge=0api=1" width="720" height="376" frameborder="0" webkitallowfullscreen="" mozallowfullscreen="" allowfullscreen=""></iframe>
+  </div>
+</div>
 
-
-
-</body>
-</html>
