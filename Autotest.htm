@@ -1,0 +1,443 @@
+<style type="text/css">
+    @import url(https://fonts.googleapis.com/css?family=Satisfy|Pathway+Gothic+One);
+/* Defaults */
+
+
+h1 {
+  font-family: 'Cronos pro', 'bold';
+  font-size: 2rem;
+  color:  #00377D;
+}
+
+h2, p {
+  font-family: 'cronos pro';
+  font-size: 1.5rem;
+}
+
+h1, h2, p {
+  text-align: center;
+  display: block;
+  width: auto;
+  margin: 1%;
+}
+
+#quizzie {
+  padding: 5% 0;
+  /* Individual Steps/Sections */
+  /* Content */
+}
+#quizzie ul {
+  list-style: none;
+  display: block;
+  width: auto;
+  padding: 2%;
+  display: none;
+  /* Step Questions and Answer Options */
+}
+#quizzie ul.current {
+  display: block;
+}
+#quizzie ul li {
+  display: inline-block;
+  width: 49%;
+  float: left;
+  text-align: center;
+}
+#quizzie ul li.quiz-answer {
+  cursor: pointer;
+
+}
+#quizzie ul li.question, #quizzie ul li.results-inner {
+  display: block;
+  float: none;
+  width: 100%;
+  text-align: center;
+  margin: 0;
+  margin-bottom: 2%;
+}
+#quizzie ul li.results-inner {
+  padding: 5% 2%;
+}
+#quizzie ul li:last-child {
+  margin-right: 0;
+}
+#quizzie .question-wrap, #quizzie .answer-wrap {
+  display: block;
+  padding: 1%;
+  margin: 1em 10%;
+  -moz-border-radius: 360px;
+  -webkit-border-radius: 360px;
+  border-radius: 360px;
+}
+#quizzie .answer-wrap {
+  background: #00C8FF;
+  color: #fff;
+  -moz-transition: background-color 0.5s ease;
+  -o-transition: background-color 0.5s ease;
+  -webkit-transition: background-color 0.5s ease;
+  transition: background-color 0.5s ease;
+}
+#quizzie .answer-wrap:hover {
+  background: #FFBE00;
+  color: #00377D;
+}
+
+</style>
+<script src="https://code.jquery.com/jquery-1.11.3.js"></script>
+<div id="quizzie">
+  <h1>¿Te gustaría saber que tanto usas internet?</h1>
+  <p>A traves de unas sencillas preguntas vamos a averiguar que tan excesivo o no es tu uso de internet.</p>
+
+    <ul class="quiz-step step1 current">
+        <li class="question">
+            <div class="question-wrap">
+                  <h2>¡En marcha!</h2>
+                <img src="https://media.giphy.com/media/l0HlyTUqlcaritnCo/giphy.gif">
+                <h2>¿Usas el teléfono para ver la hora a pesar de tener el reloj a la mano?</h2>
+            </div>
+        </li>
+        <li class="quiz-answer low-value" data-quizIndex="2">
+            <div class="answer-wrap"> 
+                <p class="answer-text">Si</p>
+            </div>
+        </li>
+        <li class="quiz-answer high-value" data-quizIndex="4">
+            <div class="answer-wrap"> 
+                <p class="answer-text">No</p>
+            </div>
+        </li>
+    </ul>
+    <ul class="quiz-step step2">
+        <li class="question">
+            <div class="question-wrap">
+                <img src="https://media.giphy.com/media/Io17PxD185gGs/giphy.gif">
+                <p>¿Usas internet para ver videos mientras estás en clases?</p>
+            </div>
+        </li>
+        <li class="quiz-answer low-value" data-quizIndex="2">
+            <div class="answer-wrap"> 
+                <p class="answer-text">Si</p>
+            </div>
+        </li>
+        <li class="quiz-answer high-value" data-quizIndex="4">
+            <div class="answer-wrap">
+                <p class="answer-text">No</p>
+            </div>
+        </li>
+    </ul>
+    <ul class="quiz-step step3">
+        <li class="question">
+            <div class="question-wrap">
+                <img src="https://media.giphy.com/media/LPdbbQJGd5UqI/giphy.gif">
+                <p>¿Utilizas el teléfono en clases para ayudarte con tus tareas?</p>
+            </div>
+        </li>
+        <li class="quiz-answer low-value" data-quizIndex="4">
+            <div class="answer-wrap">
+                <p class="answer-text">Si</p>
+            </div>
+        </li>
+        <li class="quiz-answer high-value" data-quizIndex="2">
+            <div class="answer-wrap">
+                <p class="answer-text">No</p>
+            </div>
+        </li>
+    </ul>
+    <ul class="quiz-step step4">
+        <li class="question">
+            <div class="question-wrap">
+                <img src="https://media.giphy.com/media/10PWVoMh0HLvW/giphy.gif">
+                <p>¿Lo primero que haces cuando te despiertas es mirar tus redes sociales?</p>
+            </div>
+        </li>
+        <li class="quiz-answer low-value" data-quizIndex="2">
+            <div class="answer-wrap">
+                <p class="answer-text">Si</p>
+            </div>
+        </li>
+        <li class="quiz-answer high-value" data-quizIndex="4">
+            <div class="answer-wrap">
+                <p class="answer-text">No</p>
+            </div>
+        </li>
+    </ul>
+
+
+
+    <ul class="quiz-step step5">
+        <li class="question">
+            <div class="question-wrap">
+                <img src="https://media.giphy.com/media/PQwpFxwO0wZQQ/giphy.gif">
+                <p>¿Usas internet con la supervisión de un adulto?</p>
+            </div>
+        </li>
+        <li class="quiz-answer low-value" data-quizIndex="4">
+            <div class="answer-wrap">
+                <p class="answer-text">Si</p>
+            </div>
+        </li>
+        <li class="quiz-answer high-value" data-quizIndex="2">
+            <div class="answer-wrap">
+                <p class="answer-text">No</p>
+            </div>
+        </li>
+    </ul>
+
+
+    <ul class="quiz-step step6">
+        <li class="question">
+            <div class="question-wrap">
+                <img src="https://media.giphy.com/media/gbJ6qOyjd5GHC/giphy.gif">
+                <p>¿Usas el teléfono mientras te bañas o estas en el baño?</p>
+            </div>
+        </li>
+        <li class="quiz-answer low-value" data-quizIndex="2">
+            <div class="answer-wrap">
+                <p class="answer-text">Si</p>
+            </div>
+        </li>
+        <li class="quiz-answer high-value" data-quizIndex="4">
+            <div class="answer-wrap">
+                <p class="answer-text">No</p>
+            </div>
+        </li>
+    </ul>
+
+
+    <ul class="quiz-step step7">
+        <li class="question">
+            <div class="question-wrap">
+                <img src="https://media.giphy.com/media/ixDd2qXviXpqE/giphy.gif">
+                <p>¿Tus amigos o familia te han recriminado, al menos una vez, porque no les prestas atención mientras miras el teléfono? </p>
+            </div>
+        </li>
+        <li class="quiz-answer low-value" data-quizIndex="2">
+            <div class="answer-wrap">
+                <p class="answer-text">Si</p>
+            </div>
+        </li>
+        <li class="quiz-answer high-value" data-quizIndex="4">
+            <div class="answer-wrap">
+                <p class="answer-text">No</p>
+            </div>
+        </li>
+    </ul>
+
+    <ul class="quiz-step step8">
+        <li class="question">
+            <div class="question-wrap">
+                <img src="https://media.giphy.com/media/xTiTniMgnbGYBZprWw/giphy.gif">
+                <p>¿Consultas el teléfono mientras almuerzas, cenas o desayunas?</p>
+            </div>
+        </li>
+        <li class="quiz-answer low-value" data-quizIndex="2">
+            <div class="answer-wrap">
+                <p class="answer-text">Si</p>
+            </div>
+        </li>
+        <li class="quiz-answer high-value" data-quizIndex="4">
+            <div class="answer-wrap">
+                <p class="answer-text">No</p>
+            </div>
+        </li>
+    </ul>
+
+
+    <ul class="quiz-step step9">
+        <li class="question">
+            <div class="question-wrap">
+                <img src="https://media.giphy.com/media/MaXOUjkV73aO4/giphy.gif">
+                <p>¿Cuándo llegas a un lugar lo primero que preguntas es la clave de wifi?</p>
+            </div>
+        </li>
+        <li class="quiz-answer low-value" data-quizIndex="2">
+            <div class="answer-wrap">
+                <p class="answer-text">Si</p>
+            </div>
+        </li>
+        <li class="quiz-answer high-value" data-quizIndex="4">
+            <div class="answer-wrap">
+                <p class="answer-text">No</p>
+            </div>
+        </li>
+    </ul>
+
+
+    <ul class="quiz-step step10">
+        <li class="question">
+            <div class="question-wrap">
+                <img src="https://media.giphy.com/media/zSTni1svRAQGQ/giphy.gif">
+                <p>¿Has dejado de hacer tareas importantes como estudiar por estar pendiente del teléfono?</p>
+            </div>
+        </li>
+        <li class="quiz-answer low-value" data-quizIndex="2">
+            <div class="answer-wrap">
+                <p class="answer-text">Si</p>
+            </div>
+        </li>
+        <li class="quiz-answer high-value" data-quizIndex="4">
+            <div class="answer-wrap">
+                <p class="answer-text">No</p>
+            </div>
+        </li>
+    </ul>
+
+
+    <ul class="quiz-step step11">
+        <li class="question">
+            <div class="question-wrap">
+                <img src="https://media.giphy.com/media/AzY7BcAKhnX20/giphy.gif">
+                <p>¿Usas internet solo para jugar?</p>
+            </div>
+        </li>
+        <li class="quiz-answer low-value" data-quizIndex="2">
+            <div class="answer-wrap">
+                <p class="answer-text">Si</p>
+            </div>
+        </li>
+        <li class="quiz-answer high-value" data-quizIndex="4">
+            <div class="answer-wrap">
+                <p class="answer-text">No</p>
+            </div>
+        </li>
+    </ul>
+
+
+    <ul class="quiz-step step12">
+        <li class="question">
+            <div class="question-wrap">
+                <img src="https://media2.giphy.com/media/sz0LzUpwFg51C8EzOw/giphy.gif">
+                <p>¿Acostumbras a chatear mientras vas caminando por la calle o tu casa? </p>
+            </div>
+        </li>
+        <li class="quiz-answer low-value" data-quizIndex="2">
+            <div class="answer-wrap">
+                <p class="answer-text">Si</p>
+            </div>
+        </li>
+        <li class="quiz-answer high-value" data-quizIndex="4">
+            <div class="answer-wrap">
+                <p class="answer-text">No</p>
+            </div>
+        </li>
+    </ul>
+
+    <ul id="results">
+        <li class="results-inner">
+            <h2>Tu resultado es:</h2>
+            <h1></h1>
+            <p class="desc"></p>
+        </li>
+    </ul>
+</div>
+<script type="text/javascript">
+    // Quiz result options in a separate object for flexibility
+var resultOptions = [
+    {   title: '¡Presta mucha atención, tal vez estas pasando demasiado tiempo en internet, te invitamos a aprender más acerca del uso responsable y creativo de internet en nuestro sitio contigoconectados.com',
+        desc: '<img src="1.png"/>'},
+    {   title: 'Tienes grandes oportunidades de mejora en cuanto al uso que le das a internet, te recomendamos que compartas esta información con un adulto responsable para que te guíe para un mejor uso de internet.',
+        desc: '<img src="2.png"/>'},
+    {   title: 'Manejas internet con la suficiente habilidad para conocer cuál es el momento adecuado para usarlo para una actividad u otra ¡Muy bien!.',
+        desc: '<img src="3.png" />'},
+    {   title: 'El uso correcto de internet es una de tus virtudes ¡Buena esa!.',
+        desc: '<img src="4.png" />'},
+    {   title: 'Parece que tu uso de internet es ¡muy saludable!.',
+        desc: '<img src="5.png"/>'}
+];
+    
+// global variables
+var quizSteps = $('#quizzie .quiz-step'),
+    totalScore = 0;
+
+// for each step in the quiz, add the selected answer value to the total score
+// if an answer has already been selected, subtract the previous value and update total score with the new selected answer value
+// toggle a visual active state to show which option has been selected
+quizSteps.each(function () {
+    var currentStep = $(this),
+        ansOpts = currentStep.children('.quiz-answer');
+    // for each option per step, add a click listener
+    // apply active class and calculate the total score
+    ansOpts.each(function () {
+        var eachOpt = $(this);
+        eachOpt[0].addEventListener('click', check, false);
+        function check() {
+            var $this = $(this),
+                value = $this.attr('data-quizIndex'),
+                answerScore = parseInt(value);
+            // check to see if an answer was previously selected
+            if (currentStep.children('.active').length > 0) {
+                var wasActive = currentStep.children('.active'),
+                    oldScoreValue = wasActive.attr('data-quizIndex'),
+                    oldScore = parseInt(oldScoreValue);
+                // handle visual active state
+                currentStep.children('.active').removeClass('active');
+                $this.addClass('active');
+                // handle the score calculation
+                totalScore -= oldScoreValue;
+                totalScore += answerScore;
+                calcResults(totalScore);
+            } else {
+                // handle visual active state
+                $this.addClass('active');
+                // handle score calculation
+                totalScore += answerScore;
+                calcResults(totalScore);
+                // handle current step
+                updateStep(currentStep);
+            }
+        }
+    });
+});
+
+// show current step/hide other steps
+function updateStep(currentStep) {
+    if(currentStep.hasClass('current')){
+       currentStep.removeClass('current');
+       currentStep.next().addClass('current');
+    }
+}
+
+// display scoring results
+function calcResults(totalScore) {
+    // only update the results div if all questions have been answered
+    if (quizSteps.find('.active').length == quizSteps.length){
+        var resultsTitle = $('#results h1'),
+            resultsDesc = $('#results .desc');
+        
+        // calc lowest possible score
+        var lowestScoreArray = $('#quizzie .low-value').map(function() {
+            return $(this).attr('data-quizIndex');
+        });
+        var minScore = 0;
+        for (var i = 0; i < lowestScoreArray.length; i++) {
+            minScore += lowestScoreArray[i] << 0;
+        }
+        // calculate highest possible score
+        var highestScoreArray = $('#quizzie .high-value').map(function() {
+            return $(this).attr('data-quizIndex');
+        });
+        var maxScore = 0;
+        for (var i = 0; i < highestScoreArray.length; i++) {
+            maxScore += highestScoreArray[i] << 0;
+        }
+        // calc range, number of possible results, and intervals between results
+        var range = maxScore - minScore,
+            numResults = resultOptions.length,
+            interval = range / (numResults - 1),
+            increment = '',
+            n = 0; //increment index
+        // incrementally increase the possible score, starting at the minScore, until totalScore falls into range. then match that increment index (number of times it took to get totalScore into range) and return the corresponding index results from resultOptions object
+        while (n < numResults) {
+            increment = minScore + (interval * n);
+            if (totalScore <= increment) {
+                // populate results
+                resultsTitle.replaceWith("<h1>" + resultOptions[n].title + "</h1>");
+                resultsDesc.replaceWith("<p class='desc'>" + resultOptions[n].desc + "</p>");
+                return;
+            } else {
+                n++;
+            }
+        }
+    }
+}
+</script>
