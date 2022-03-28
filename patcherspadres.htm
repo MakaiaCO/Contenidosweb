@@ -1,0 +1,366 @@
+
+<!DOCTYPE html>
+<html lang='en' class=''>
+<head>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+
+  <style>
+    * {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  font-family: cronos pro;
+}
+
+*:before, *:after {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+.row {
+  width: 100%;
+  max-width: 1170px;
+  margin: 0 auto;
+  padding: 0;
+  clear: both;
+}
+.row img {
+  max-width: 100%;
+  height: auto;
+  padding: 0;
+  margin: 0;
+  filter: grayscale(90%);
+}
+.row img:hover {
+  filter: grayscale(0%);
+}
+
+.gallery ul li {
+  float: left;
+  margin: 0 0.8771929825%;
+  overflow: hidden;
+}
+
+
+.gallery {
+  padding: 40px 0 300px;
+  position: relative;
+  overflow: hidden;
+}
+.gallery ul {
+  padding-top: 50px;
+  position: relative;
+}
+.gallery ul li {
+  margin-bottom: 20px;
+  width: 29.3%;
+  position: relative;
+}
+.gallery ul li a {
+  display: block;
+  position: relative;
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  text-decoration: none;
+  font-size: 1.2rem;
+  text-align: center;
+  line-height: 0;
+}
+
+.gallery ul li a:hover:before {
+  top: 50%;
+  opacity: 1;
+}
+
+
+.port {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  padding-top: 100px;
+  background: #ffffff;
+  background-color: #fafafa;
+  z-index: 103;
+  visibility: hidden;
+  -webkit-transform: translateY(-100%);
+  transform: translateY(-100%);
+  border-bottom: 1px solid #d0d0d0;
+  -webkit-transition: all 0.5s ease-in-out;
+  -moz-transition: all 0.5s ease-in-out;
+  transition: all 0.5s ease-in-out;
+}
+.port iframe {
+  width: 50%;
+}
+.port .description {
+  float: left;
+  width: 50%;
+  max-height: 100%;
+  padding: 0 40px 40px;
+  overflow: auto;
+}
+
+.port > * {
+  opacity: 0;
+  -webkit-transition: all 0.5s linear;
+  -moz-transition: all 0.5s linear;
+  transition: all 0.5s linear;
+}
+.port.item_open {
+  visibility: visible;
+  -webkit-transform: translateY(0%);
+  transform: translateY(0%);
+  -webkit-transition: all 0.4s ease-in-out;
+  -moz-transition: all 0.4s ease-in-out;
+  transition: all 0.4s ease-in-out;
+}
+.port > * {
+  opacity: 1;
+  -webkit-transition-delay: 0.5s;
+  transition-delay: 0.5s;
+}
+
+.close {
+  width: 21px;
+  height: 21px;
+  background: url(data:image/svg+xml;utf8,%3C%3Fxml%20version%3D%221.0%22%20encoding%3D%22utf-8%22%3F%3E%0A%3C%21--%20Generator%3A%20Adobe%20Illustrator%2017.1.0%2C%20SVG%20Export%20Plug-In%20.%20SVG%20Version%3A%206.00%20Build%200%29%20%20--%3E%0A%3C%21DOCTYPE%20svg%20PUBLIC%20%22-//W3C//DTD%20SVG%201.1//EN%22%20%22http%3A//www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd%22%3E%0A%3Csvg%20version%3D%221.1%22%0A%09%20id%3D%22svg2%22%20xmlns%3Adc%3D%22http%3A//purl.org/dc/elements/1.1/%22%20xmlns%3Acc%3D%22http%3A//creativecommons.org/ns%23%22%20xmlns%3Ardf%3D%22http%3A//www.w3.org/1999/02/22-rdf-syntax-ns%23%22%20xmlns%3Asvg%3D%22http%3A//www.w3.org/2000/svg%22%0A%09%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20xmlns%3Axlink%3D%22http%3A//www.w3.org/1999/xlink%22%20x%3D%220px%22%20y%3D%220px%22%20viewBox%3D%220%200%2021%2021%22%0A%09%20enable-background%3D%22new%200%200%2021%2021%22%20xml%3Aspace%3D%22preserve%22%3E%0A%3Cg%20id%3D%22layer1%22%20transform%3D%22translate%280%2C-1031.3622%29%22%3E%0A%09%3Cpath%20id%3D%22path2987%22%20fill%3D%22none%22%20stroke%3D%22%23000000%22%20d%3D%22M0%2C1031.4l21%2C21%22/%3E%0A%09%3Cpath%20id%3D%22path2989%22%20fill%3D%22none%22%20stroke%3D%22%23000000%22%20d%3D%22M21%2C1031.4l-21%2C21%22/%3E%0A%3C/g%3E%0A%3C/svg%3E%0A%0A) no-repeat;
+  position: absolute;
+  right: 10px;
+  top: -121px;
+  opacity: 1;
+  z-index: 1004;
+  -webkit-transition: all 0.1s ease-in-out;
+  -moz-transition: all 0.1s ease-in-out;
+  transition: all 0.1s ease-in-out;
+}
+.item_open .close {
+  opacity: 1;
+  top: 0px;
+  -webkit-transition: all 0.3s ease-in-out;
+  -moz-transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
+}
+header {
+  text-align: center;
+}
+header h1 {
+    color: #00377D;
+}
+.description h1 {
+  color: #00377D;
+}
+.description ul li {
+  overflow: initial;
+  width: 100%;
+  margin-bottom: 5px;
+  color: #00377D;
+  font-weight: 600;
+}
+.description ul {
+  padding-top: 0px;
+}
+
+
+  </style>
+
+</head>
+
+<body>
+  <header>
+    <h1>Patchers</h1>
+    <p>
+  Patchers “Guardianes de internet”.  Patchers la primera miniserie sobre uso responsable y creativo de internet que aborda temas como el ciberbullying, la seguridad en línea, la brecha digital, el uso excesivo de internet y la sexualidad. 
+</p>
+  </header>
+
+
+<section class="gallery">
+	<div class="row">
+		<ul>
+			<a href="#" class="close"></a>
+			<li>
+				<a href="#item01">
+					<img src="ep1.png" alt="">
+          <p>Cyberbullying</p>
+				</a>
+
+			</li>
+
+			<li>
+				<a href="#item03">
+					<img src="ep2.png" alt="">
+          <p>Brecha digital</p>
+				</a>
+			</li>
+
+			<li>
+				<a href="#item04">
+					<img src="ep3.png" alt="">
+          <p>Uso excesivo de internet</p>
+				</a>
+			</li>
+			<li>
+				<a href="#item05">
+					<img src="ep4.png" alt="">
+          <p>Seguridad en línea</p>
+				</a>
+			</li>
+			<li>
+				<a href="#item02">
+					<img src="ep5.png" alt="">
+          <p>Sexualidad</p>
+				</a>
+			</li>
+		</ul>
+	</div> <!-- / row -->
+
+	<!-- Item 01 -->
+	<div id="item01" class="port">
+	
+		<div class="row">
+			<div class="description">
+				<h1>Ciberbullying</h1>
+    <p>El daño que sufren niños y adolescentes gracias a agresiones recibidas por medio de internet es conocido como #Ciberbullying. La prevención, detección y denuncia de estos casos son acciones necesarias para evitar que más personas sufran como Nati, a quien conocerás en este capítulo. ¿Cómo actuar frente a estas situaciones? Te lo contamos en #Patchers, Guardianes de Internet.</p>
+    <p>Conoce aquí algunos tips sobre cómo abordar las diferentes situaciones que se plantean en el capítulo: </p>
+    <ul>
+      <li>Evitar a la persona que los hostiga y utilizar el sistema de compañeros, que consiste en preguntarle a sus compañeros acerca de lo ocurrido. </li>
+      <li>Contener la ira, contar hasta 10 es una buena opción.</li>
+      <li>Se debe actuar con valentía, alejarse e ignorar al hostigador.</li>
+      <li>Decirle a un adulto.</li>
+      <li>Conversar sobre el tema. </li>
+    </ul>
+			</div>
+
+				    
+    <iframe width="670" height="350" src="https://www.youtube.com/embed/1VRZdOibo_0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+			</div>
+		</div> <!-- / row -->
+
+	</div> <!-- / Item 02 -->
+
+	<!-- Item 02 -->
+	<div id="item02" class="port">
+	
+		<div class="row">
+			<div class="description">
+				<h1>Sexualidad</h1>
+    <p>Compartir con tus hijos cuando se trata de su exploración sexual es clave para su desarrollo. En este capítulo conocerás a Dani, un joven que está descubriendo su sexualidad y buscando en internet información al respecto, y que necesitará la ayuda de sus amigos, familia y Goti.</p>
+    <p>Conoce aquí algunos tips sobre cómo abordar las diferentes situaciones que se plantean en el capítulo: </p>
+    <ul>
+
+              <li>Ponte en su lugar: Recuerda que antes que él, tú también has sido adolescente y sabes perfectamente lo que se siente en esa etapa de la vida. </li>
+              <li>Sinceridad, ante todo: Es importante aquí el tono de la conversación. Trátalo con total naturalidad. El sexo es algo normal que forma parte de la vida, pero si no se tiene cuidado puede conllevar algunos riesgos. </li>
+              <li>Trátalo como a un igual: No te dirijas a tu hijo adolescente como si aún fuera un niño pequeño e ignorara todo lo relacionado con el tema del sexo. </li>
+              <li>Hazle saber que atenderás sus consultas: Si este no se muestra receptivo a hablar del tema, no le fuerces. No obstante, hazle saber que estás ahí para responder sus dudas cuando lo crea necesario. </li>
+              <li>Aprovecha el momento: Si no sabes cómo afrontar la conversación, aprovecha cualquier momento en el que el tema del sexo se haya puesto sobre la mesa (un programa de televisión, una experiencia de alguien cercano, etc.) </li>
+  </ul>
+			</div>
+			    
+<iframe width="670" height="350" src="https://www.youtube.com/embed/RmpzT-Cbnq4" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+		</div> <!-- / row -->
+
+	</div> <!-- / Item 02 -->
+
+
+
+    <!-- Item 03 -->
+  <div id="item03" class="port">
+  
+    <div class="row">
+      <div class="description">
+    <h1>Brecha digital</h1>
+    <p>La #BrechaDigital es la diferencia entre quienes tienen habilidades para  usar Internet y quienes no.  Aprender a identificarla y ayudar a reducirla, es una misión de todos. La  familia de Elías nos enseña qué es y por qué todos debemos participar de la vida digital.</p>
+    <p>Conoce aquí algunos tips sobre cómo abordar las diferentes situaciones que se plantean en el capítulo: </p>
+    <ul>
+    <li>Un servicio de Internet asequible. </li>
+    <li>Dispositivos con acceso a Internet adecuados a la edad. </li>
+    <li>Horarios educativos para utilizar Internet y otras tecnologías digitales.</li>
+    <li>Un soporte de calidad e incondicional. </li>
+    </ul>
+      </div>
+
+    <iframe width="670" height="350" src="https://www.youtube.com/embed/VoUZsufbLD0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+    </div> <!-- / row -->
+
+  </div> <!-- / Item 03 -->
+
+
+
+    <!-- Item 04 -->
+  <div id="item04" class="port">
+  
+    <div class="row">
+      <div class="description">
+    <h1>Uso excesivo de internet</h1>
+    <p>¿Pasas largas horas usando internet y dejas de compartir con tus amigos y familiares? ¿Te has preguntado cuándo el uso de internet se vuelve un problema en tu vida o en tu familia? Descubre la historia de Nico, un adolescente experto en juegos en línea, y mira cómo su familia encuentra un camino para sobrepasar las situaciones que se generan por un uso excesivo de internet.</p>
+        <p>Conoce aquí algunos tips sobre cómo abordar las diferentes situaciones que se plantean en el capítulo: </p>
+        <ul>
+      <li>Evita la adicción a las redes sociales al limitar las notificaciones. </li>
+      <li>Establece un horario para revisar tus redes. </li>
+      <li>Haz un "detox" o respiro digital, tomate un tiempo para departir en familia con el resto de personas. </li>
+      <li>Elimina las apps de redes sociales de celular o limita el uso de ellas en tiempo. </li>
+
+
+        </ul>
+      </div>
+
+    <iframe width="670" height="350" src="https://www.youtube.com/embed/Z6q2o-NaKI4" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+    </div> <!-- / row -->
+
+  </div> <!-- / Item 04 -->
+
+
+
+    <!-- Item 05 -->
+  <div id="item05" class="port">
+  
+    <div class="row">
+      <div class="description">
+    <h1>Seguridad en línea</h1>
+    <p>¿Te gustaría saber cómo cuidar la información personal de tu hijo en Internet? Descubre junto a Valen, una niña entusiasta, amante de la danza, la importancia de conocer sobre redes sociales, los criterios de seguridad y su potencial en el desarrollo de los intereses de niños, niñas y adolescentes.</p>
+            <p>Conoce aquí algunos tips sobre cómo abordar las diferentes situaciones que se plantean en el capítulo: </p>
+            <ul>
+          <li>Naveguen juntos.</li>
+          <li>Mantén los dispositivos siempre a la vista.</li>
+          <li>Utiliza una tecnología de seguridad como Kaspersky, Safe Kids para cuando no puedas estar cerca ni supervisar en persona cómo utiliza Internet.</li>
+          <li>Limita el tiempo en línea.</li>
+            </ul>
+      </div>
+
+    <iframe width="670" height="350" src="https://www.youtube.com/embed/cuwV0gc9Nk0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+    </div> <!-- / row -->
+
+  </div> <!-- / Item 05 -->
+
+
+</section> <!-- / projects -->
+
+<script type="text/javascript">
+   // portfolio
+ $('.gallery ul li a').click(function() {
+     var itemID = $(this).attr('href');
+     $('.gallery ul').addClass('item_open');
+     $(itemID).addClass('item_open');
+     return false;
+ });
+ $('.close').click(function() {
+     $('.port, .gallery ul').removeClass('item_open');
+     return false;
+ });
+
+ $(".gallery ul li a").click(function() {
+     $('html, body').animate({
+         scrollTop: parseInt($("#top").offset().top)
+     }, 400);
+ });
+</script>
+  
+</body>
+
+</html>
