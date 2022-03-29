@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+<style type="text/css">
+
+body{
+  font-family: "cronos pro";
+  background: url(bgappssalud.png);
+  background-size: cover;
+  height: 100vh;
+}
+
+.container{
+  position: relative;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+}
+
+.container2 {
+  position: relative;
+  padding: 20px;
+  color: #fff;
+  width: 70%;
+  display:block;
+  margin: 0 auto;
+}
+.container2 span {
+  color: #FFBE00;
+}
+
+.container img{
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  object-fit: contain;
+}
+
+.container h2{
+  z-index: 1;
+  position: relative;
+  color: #fff;
+  font-size: 1.8rem;
+  text-transform: uppercase;
+  font-weight: 900;
+  line-height: 60px;
+}
+
+.container h2 span{
+  font-size: 48px;
+  font-weight: 500;
+  letter-spacing: 10px;
+}
+
+@media (max-width:800px){
+  .container h2{
+    font-size: 60px;
+    letter-spacing: 19px;
+    line-height: 35px;
+  }
+
+  .container h2 span{
+    font-size: 26px;
+  }
+}
+
+/* iPad® By Christopher Bicudo */
+
+/*====== INICIO =======*/
+
+
+.main {
+  width:553px;
+  height:720px;
+  margin:43px auto 0 auto;
+  background-color:rgba(0,0,0,1);
+  border:1px solid rgba(239,239,239,1);
+  border-radius:23px;
+}
+
+/*=======================*/
+
+.web-cam {
+  position:absolute;
+  width:10px;
+  height:10px;
+  margin-left:273px;
+  margin-top:21px;
+  border:1px solid rgba(0,0,0,1);
+  border-radius:50px;
+  background-image:url(http://vector.me/files/images/7/4/749558/camera_lens.png);
+  background-repeat:no-repeat;
+  background-size:10px;
+}
+
+/*=======================*/
+
+.container-background {
+  width:441px;
+  height:591px;
+  margin:54px auto;
+  background-image:url(http://cdn.osxdaily.com/wp-content/uploads/2014/09/ios-8-wallpaper-default.jpg);
+  background-repeat:no-repeat;
+  border-radius:5px;
+}
+
+.p {
+  position:relative;
+  background-color:rgba(0,0,0,0.5);
+  font-size:8pt;
+  font-family:arial;
+  color:rgba(255,255,255,1);
+  text-align:center;
+  word-spacing:160px;
+  padding:2px 0 2px 0;
+  cursor:default;
+}
+
+.nav-icons {
+  position:absolute;
+  width:421px;
+  height:400px;
+  margin-left:2px;
+  padding:10px;
+}
+
+.nav-icons img {
+  position:relative;
+  bottom:0;
+  right:2px;
+  padding:26px;
+  transition:0.2s;
+  -webkit-transition:0.2s;
+  -moz-transition:0.2s;
+}
+
+.nav-icons img:hover {
+  bottom:12px;
+}
+
+/*=======================*/
+
+.nav-small {
+  position:relative;
+  top:477px;
+  width:441px;
+  height:87px;
+  border-color:1px solid rgba(0,0,0,0);
+  background-color:rgba(190,190,190,0.8);
+  border-radius:0 0 4px 4px;
+}
+
+.nav-small img {
+  position:relative;
+  bottom:0;
+  margin-left:-14px;
+  margin-top:13px;
+  padding-left:60px;
+  transition:0.2s;
+  -webkit-transition:0.2s;
+  -moz-transition:0.2s;
+}
+
+.nav-small img:hover {
+  bottom:8px;
+}
+
+/*=======================*/
+
+
+.span {
+  color:rgba(0,0,0,0);
+  margin-left:-2px;
+  margin-bottom:9px;
+  font-size:28pt;
+}
+
+/*===== FIM =====*/
+
+
+.modal {
+  visibility: hidden;
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  padding: 1.5rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: all 0.3s;
+}
+.modal_inner {
+  max-width: 42rem;
+  padding: 1.5rem;
+  border-radius: 2px;
+  background-color: #ffffff;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+  opacity: 0;
+  transform: scale(0.8);
+  transition: all 0.3s;
+}
+.modal_inner h1 {
+  color: #00377D;
+}
+.modal_inner p {
+  color: #00000A;
+}
+.modal.-open {
+  visibility: visible;
+  background-color: rgba(0, 0, 0, 0.4);
+}
+.modal.-open .modal_inner {
+  opacity: 1;
+  transform: scale(1);
+}
+button {
+  color:#fff ;
+  background-color:transparent;
+  padding: 20px;
+  font-size: 1.5rem;
+  font-weight: 600;
+  border-radius: 36px;
+  align-items: center;
+  border: 2px solid #FFBE00;
+
+
+}
+
+</style>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  </head>
+  <body>
+
+    <div class="container">
+      <h2 class="object" data-value="3">Las mejores 'apps' de salud</h2>
+      <img src="01.png" class="object" data-value="-2" alt="">
+      <img src="02.png" class="object" data-value="6" alt="">
+      <img src="03.png" class="object" data-value="4" alt="">
+      <img src="04.png" class="object" data-value="-6" alt="">
+      <img src="05.png" class="object" data-value="8" alt="">
+      <img src="06.png" class="object" data-value="-4" alt="">
+      <img src="07.png" class="object" data-value="5" alt="">
+      <img src="08.png" class="object" data-value="-9" alt="">
+      <img src="09.png" class="object" data-value="-5" alt="">
+    </div>
+    <div class="container2">
+<h2>La tecnología se ha convertido en una aliada de la salud. De las miles de aplicaciones existentes, estas son algunas de las más exitosas.</h2><br>
+<p>Desde que aparecieron los teléfonos inteligentes, las aplicaciones móviles de salud han tenido un crecimiento inusitado. Se estima que hay alrededor de 97.000 y cada día aparecen cientos más. Según los expertos, más de un tercio de los usuarios de smartphones instala una aplicación relacionada con salud. Esta nueva tecnología, denominada mHealth o salud móvil, ayuda a los pacientes y profesionales de la salud a acceder desde dispositivos móviles y tabletas a información sobre enfermedades, medicamentos y tratamientos. SEMANA destaca las nueve más populares y relevantes según el portal The App Date. Todas existen para IOS y Android y son gratuitas, excepto Calm, que cuesta 9,99 dólares. 
+ </p>
+ <p><span>*Tigo no está involucrado en el desarrollo ni distribución de ninguna de las aplicaciones recomendadas.</p></span>
+<br>
+<center><button>Conoce más detalles de las aplicaciones dando clic en cada una</button></center>
+
+<main class="main"><!-- carcaça Ipad -->
+
+  <span class="web-cam"></span><!-- webcam -->
+    
+  <div class="container-background">
+    <p class="p">iPad&Xi; 9:40am 100%&equiv;</p><!-- data/horário/bateria -->
+
+    <nav class="nav-icons"><!-- 9 icones tela -->
+      <a  data-target="modal1" class="button">
+      <img src="iconpad1.png"></a>
+      <a data-target="modal2" class="button">
+      <img style="padding-bottom: 16px;" src="iconpad2.png"></a>
+      <a data-target="modal3" class="button">
+      <img style="padding-bottom: 16px;" src="iconpad3.png"></a>
+      <a data-target="modal4" class="button">
+      <img src="iconpad4.png"></a>
+      <a data-target="modal5" class="button">
+      <img src="iconpad5.png"></a>
+      <a data-target="modal6" class="button">
+      <img src="iconpad6.png"></a>
+      <a data-target="modal7" class="button">
+      <img src="iconpad7.png"></a>
+      <a data-target="modal8" class="button">
+      <img src="iconpad8.png"></a>
+      <a data-target="modal9" class="button">
+      <img src="iconpad9.png"></a>
+    </nav>
+
+    <nav class="nav-small"><!-- 4 icones menu -->
+      <img src="https://i.imgur.com/pNwToii.png">
+      <img src="https://i.imgur.com/COHsg5u.png">
+      <img src="https://i.imgur.com/O67GFHY.png">
+      <img src="https://i.imgur.com/6Rj0DA6.png">
+    </nav>
+
+
+  </div><!-- fim container-background -->
+
+</main>
+
+    <div class="modal" id="modal1">
+  <div class="modal_inner">
+    <h1>Contigo</h1>
+ <p>Este programa incluye testimonios de mujeres que padecieron y superaron el cáncer de seno, así como infografías interactivas y contenido médico avalado por oncólogos. Ofrece información por secciones que van desde los primeros días del cáncer, las emociones por las que pasan las pacientes, las terapias, la quimio y sus efectos, la reconstrucción y el final de la terapia.</p>
+  </div>
+</div>
+
+    <div class="modal" id="modal2">
+  <div class="modal_inner">
+    <h1>Social Diabetes</h1>
+ <p>Esta aplicación permite a los pacientes con diabetes tipo 1 y 2 llevar un registro de lo que comieron en el día, cuánta insulina utilizaron y cómo está su nivel de glucosa. Ayuda a controlar el riesgo de hipoglicemia posterior a la aplicación de insulina. Cuenta con una base de datos de más de 11.000 alimentos con todas sus propiedades. Además, incluye una red social que permite compartir dietas, consejos y experiencias de otros usuarios. 
+</p>
+  </div>
+</div>
+
+    <div class="modal" id="modal3">
+  <div class="modal_inner">
+    <h1>Universal Doctor Speaker</h1>
+ <p>Ir a donde un médico en un país desconocido y no hablar su idioma puede ser una pesadilla. Pero esta aplicación que traduce síntomas, dolores y preguntas de su lengua nativa a la del médico permite superar ese obstáculo. El programa ofrece 17 idiomas diferentes y más de 500 palabras claves. De igual manera ayuda a los profesionales de la salud a realizar una historia clínica en cualquiera de esas lenguas. 
+</p>
+  </div>
+</div>
+
+    <div class="modal" id="modal4">
+  <div class="modal_inner">
+    <h1>Calm</h1>
+ <p>Esta aplicación ofrece una serie de ejercicios de meditación con sesiones rápidas para liberar la ansiedad y manejar el estrés. Resulta ideal para personas con una vida laboral atareada ya que se puede usar en la oficina o en cualquier lugar y no exige de mucho tiempo. Ha sido recomendada por el diario The New York Times y está disponible para Android e IOS.</p>
+  </div>
+</div>
+
+    <div class="modal" id="modal5">
+  <div class="modal_inner">
+    <h1>Endomondo</h1>
+ <p>Este entrenador personal virtual motiva a los usuarios en sus prácticas deportivas, ya sea trotar, correr, montar en bicicleta o nadar. La aplicación monitorea la frecuencia cardiaca y permite establecer metas de rendimiento. Es ideal para personas que van a comenzar a practicar algún deporte o para profesionales sin tiempo. Tiene más de 25 millones de usuarios.</p>
+  </div>
+</div>
+
+    <div class="modal" id="modal6">
+  <div class="modal_inner">
+    <h1>Nire iHealth</h1>
+ <p>Es un autogestor de salud que permite a los usuarios adoptar estilos de vida saludables y preventivos. Para ello utiliza un complejo algoritmo que analiza y relaciona en tiempo real los datos de cada paciente y hace una serie de recomendaciones individualizadas con base en las enfermedades que padece. Asiste al paciente en temas que van desde el uso adecuado de medicamentos hasta una alimentación correcta según cada patología.</p>
+  </div>
+</div>
+
+    <div class="modal" id="modal7">
+  <div class="modal_inner">
+    <h1>Babycenter</h1>
+ <p>Esta app brinda información sobre el embarazo y la maternidad. Con solo introducir la fecha probable de parto da una guía diaria de cada etapa de la gestación. Permite interactuar con otras mujeres y ofrece foros así como imágenes interactivas de cada semana de embarazo, videos en 3D, guías de nutrición y consejos para el día del parto.</p>
+  </div>
+</div>
+
+    <div class="modal" id="modal8">
+  <div class="modal_inner">
+    <h1>Itriage</h1>
+ <p>Permite a los pacientes describir sus síntomas y por medio de una base de datos revisados y autorizados por la Universidad de Harvard da un diagnóstico cercano. Se convierte en una gran herramienta tanto para los pacientes como para los prestadores de servicios de salud ya que con dicho diagnóstico se pueden descongestionar los servicios de urgencias además de tranquilizar a los pacientes cuando tienen dolores y otros síntomas que no ameritan una valoración de emergencia.</p>
+  </div>
+</div>
+
+    <div class="modal" id="modal9">
+  <div class="modal_inner">
+    <h1>Glow</h1>
+ <p>Por medio de un algoritmo permite a las mujeres vigilar el periodo menstrual, su fase de ovulación, en qué parte del ciclo son más fértiles, ayuda a prevenir embarazos no deseados monitoreando la acción del método anticonceptivo utilizado. Ganó el premio Webby 2014 a la Mejor Aplicación de Salud y Fitness.</p>
+  </div>
+</div>
+
+<!-- fim main --><br>
+<center><p>Fuente: Revista semana</p>
+<p>https://www.semana.com/las-mejores-aplicaciones-de-salud/454749-3/ </p>
+</center>
+</div>
+  
+    <script type="text/javascript">
+    document.addEventListener("mousemove", parallax);
+    function parallax(e){
+      document.querySelectorAll(".object").forEach(function(move){
+
+        var moving_value = move.getAttribute("data-value");
+        var x = (e.clientX * moving_value) / 250;
+        var y = (e.clientY * moving_value) / 250;
+
+        move.style.transform = "translateX(" + x + "px) translateY(" + y + "px)";
+      });
+    }
+
+
+$(".button[data-target]").click(function() {
+  $("#" + this.dataset.target).toggleClass("-open")
+})
+
+$(".modal").click(function(e) {
+  if (e.target === this) {
+    $(this).toggleClass("-open")
+  }
+})
+
+    </script>
+
+  </body>
+</html>
