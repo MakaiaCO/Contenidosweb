@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang='en' class=''>
 <head>
@@ -165,7 +166,114 @@ header h1 {
   padding-top: 0px;
 }
 
+/** Timeline **/
+.timeline li {
+  display: flex;
+  line-height: 1;
+}
 
+.timeline--date {
+  flex: 0 0 150px;
+  color: #999;
+  font-family: "Droid Serif", serif;
+  font-size: 90%;
+  text-align: right;
+  margin-right: 50px;
+}
+
+.timeline--circle {
+  flex: 0 0 50px;
+  position: relative;
+  text-align: center;
+  /*For vertical line*/
+}
+.timeline--circle:before {
+  content: "";
+  position: absolute;
+  height: 100%;
+  width: 2px;
+  background: #222;
+  margin: auto;
+  right: 0;
+  left: 0;
+  z-index: 2;
+}
+.timeline--circle i {
+  transition: all 0.4s ease-in-out;
+  position: relative;
+  display: inline-block;
+  background: #222;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  boz-sizing: border-box;
+  z-index: 3;
+}
+
+.timeline--description {
+  padding-bottom: 15px;
+}
+
+/*For the first timeline item*/
+.timeline li:first-child .timeline--date,
+.timeline li:first-child .timeline--description {
+  margin-top: 15px;
+}
+.timeline li:first-child .timeline--circle:before {
+  margin-top: 15px;
+}
+.timeline li:first-child .timeline--circle:after {
+  content: "";
+  background: transparent;
+  box-sizing: border-box;
+  width: 40px;
+  height: 40px;
+  border: 2px solid #e9e9e9;
+  position: absolute;
+  left: 0;
+  right: 0;
+  margin: auto;
+  border-radius: 50%;
+  z-index: 1;
+}
+.timeline li:first-child i {
+  background: transparent;
+  width: 40px;
+  height: 40px;
+}
+.timeline li:first-child i:after {
+  content: "";
+  background: orange;
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
+  display: inline-block;
+  position: absolute;
+  margin: auto;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
+
+/*Now let us start do the hover effects*/
+.timeline li:hover .timeline--date {
+  color: #555;
+}
+.timeline li:hover .timeline--circle i {
+  transform: scale(4);
+}
+.timeline li:hover .timeline--description {
+  color: orange;
+}
+
+.timeline li:first-child:hover .timeline--circle i {
+  transform: none;
+  background: #222;
+}
+.timeline li:first-child:hover .timeline--circle:after {
+  border-color: #222;
+}
   </style>
 
 </head>
@@ -225,19 +333,54 @@ header h1 {
 		<div class="row">
 			<div class="description">
 				<h1>Ciberbullying</h1>
-    <p>El daño que sufren niños y adolescentes gracias a agresiones recibidas por medio de internet es conocido como #Ciberbullying. La prevención, detección y denuncia de estos casos son acciones necesarias para evitar que más personas sufran como Nati, a quien conocerás en este capítulo. ¿Cómo actuar frente a estas situaciones? Te lo contamos en #Patchers, Guardianes de Internet.</p>
+    <p>El daño que sufren niños, niñas y adolescentes gracias a agresiones recibidas por medio de internet es conocido como #Ciberbullying. La prevención, detección y denuncia de estos casos son acciones necesarias para evitar que más personas sufran como Nati, a quien conocerás en este capítulo. ¿Cómo actuar frente a estas situaciones? Te lo contamos en #Patchers, Guardianes de internet.</p>
     <p>Conoce aquí algunos tips sobre cómo abordar las diferentes situaciones que se plantean en el capítulo: </p>
-    <ul>
-      <li>Evitar a la persona que los hostiga y utilizar el sistema de compañeros, que consiste en preguntarle a sus compañeros acerca de lo ocurrido. </li>
-      <li>Contener la ira, contar hasta 10 es una buena opción.</li>
-      <li>Se debe actuar con valentía, alejarse e ignorar al hostigador.</li>
-      <li>Decirle a un adulto.</li>
-      <li>Conversar sobre el tema. </li>
-    </ul>
-			</div>
+    
+  <ul class="timeline timeline-vertical">
+  <li>
+
+    <div class="timeline--circle">        <i></i>
+    </div>
+    <div class="timeline--description">
+      Evitar a la persona que los hostiga y utilizar el sistema de compañeros, que consiste en preguntarle a sus compañeros acerca de lo ocurrido.
+    </div>
+  </li>
+
+  <li>
+    <div class="timeline--circle">        <i></i>
+    </div>
+    <div class="timeline--description">
+     Contener la ira, contar hasta 10 es una buena opción.
+    </div>
+  </li>
+  <li>
+    <div class="timeline--circle">        <i></i>
+    </div>
+    <div class="timeline--description">
+     Se debe actuar con valentía, alejarse e ignorar al hostigador.
+    </div>
+  </li>
+  <li>
+    <div class="timeline--circle">        <i></i>
+    </div>
+    <div class="timeline--description">
+     Decirle a un adulto.
+    </div>
+  </li>
+  <li>
+    <div class="timeline--circle">        <i></i>
+    </div>
+    <div class="timeline--description">
+     Conversar sobre el tema. 
+    </div>
+  </li>
+</ul>
+
+
+</div>
 
 				    
-    <iframe width="670" height="350" src="https://www.youtube.com/embed/1VRZdOibo_0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+    <iframe width="670" height="350" src="https://www.youtube.com/embed/1VRZdOibo_0" style="float: left;" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 			</div>
 		</div> <!-- / row -->
 
@@ -249,16 +392,52 @@ header h1 {
 		<div class="row">
 			<div class="description">
 				<h1>Sexualidad</h1>
-    <p>Compartir con tus hijos cuando se trata de su exploración sexual es clave para su desarrollo. En este capítulo conocerás a Dani, un joven que está descubriendo su sexualidad y buscando en internet información al respecto, y que necesitará la ayuda de sus amigos, familia y Goti.</p>
+    <p>Compartir con tus hijos e hijas cuando se trata de su exploración sexual es clave para su desarrollo. En este capítulo conocerás a Dani, un joven que está descubriendo su sexualidad y buscando en internet información al respecto, y que necesitará la ayuda de sus amigos, familia y Goti.</p>
     <p>Conoce aquí algunos tips sobre cómo abordar las diferentes situaciones que se plantean en el capítulo: </p>
-    <ul>
 
-              <li>Ponte en su lugar: Recuerda que antes que él, tú también has sido adolescente y sabes perfectamente lo que se siente en esa etapa de la vida. </li>
-              <li>Sinceridad, ante todo: Es importante aquí el tono de la conversación. Trátalo con total naturalidad. El sexo es algo normal que forma parte de la vida, pero si no se tiene cuidado puede conllevar algunos riesgos. </li>
-              <li>Trátalo como a un igual: No te dirijas a tu hijo adolescente como si aún fuera un niño pequeño e ignorara todo lo relacionado con el tema del sexo. </li>
-              <li>Hazle saber que atenderás sus consultas: Si este no se muestra receptivo a hablar del tema, no le fuerces. No obstante, hazle saber que estás ahí para responder sus dudas cuando lo crea necesario. </li>
-              <li>Aprovecha el momento: Si no sabes cómo afrontar la conversación, aprovecha cualquier momento en el que el tema del sexo se haya puesto sobre la mesa (un programa de televisión, una experiencia de alguien cercano, etc.) </li>
-  </ul>
+
+
+    <ul class="timeline timeline-vertical">
+  <li>
+
+    <div class="timeline--circle">        <i></i>
+    </div>
+    <div class="timeline--description">
+      Ponte en su lugar: recuerda que antes que él, tú también has sido adolescente y sabes perfectamente lo que se siente en esa etapa de la vida. 
+    </div>
+  </li>
+
+  <li>
+    <div class="timeline--circle">        <i></i>
+    </div>
+    <div class="timeline--description">
+     Sinceridad, ante todo: es importante aquí el tono de la conversación. Trátalo con total naturalidad. El sexo es algo normal que forma parte de la vida, pero si no se tiene cuidado puede conllevar algunos riesgos. 
+    </div>
+  </li>
+  <li>
+    <div class="timeline--circle">        <i></i>
+    </div>
+    <div class="timeline--description">
+     Trátalo como a un igual: no te dirijas a tu hijo adolescente como si aún fuera un niño pequeño e ignorara todo lo relacionado con el tema del sexo.
+    </div>
+  </li>
+  <li>
+    <div class="timeline--circle">        <i></i>
+    </div>
+    <div class="timeline--description">
+     Hazle saber que atenderás sus consultas: si este no se muestra receptivo a hablar del tema, no le fuerces. No obstante, hazle saber que estás ahí para responder sus dudas cuando lo crea necesario.
+    </div>
+  </li>
+  <li>
+    <div class="timeline--circle">        <i></i>
+    </div>
+    <div class="timeline--description">
+     Aprovecha el momento: si no sabes cómo afrontar la conversación, aprovecha cualquier momento en el que el tema del sexo se haya puesto sobre la mesa (un programa de televisión, una experiencia de alguien cercano, etc.) 
+    </div>
+  </li>
+</ul>
+
+
 			</div>
 			    
 <iframe width="670" height="350" src="https://www.youtube.com/embed/RmpzT-Cbnq4" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
@@ -274,14 +453,45 @@ header h1 {
     <div class="row">
       <div class="description">
     <h1>Brecha digital</h1>
-    <p>La #BrechaDigital es la diferencia entre quienes tienen habilidades para  usar Internet y quienes no.  Aprender a identificarla y ayudar a reducirla, es una misión de todos. La  familia de Elías nos enseña qué es y por qué todos debemos participar de la vida digital.</p>
+    <p>La #BrechaDigital es la diferencia entre quienes tienen habilidades para  usar internet y quienes no.  Aprender a identificarla y ayudar a reducirla, es una misión de todos. La  familia de Elías nos enseña qué es y por qué todos debemos participar de la vida digital.</p>
     <p>Conoce aquí algunos tips sobre cómo abordar las diferentes situaciones que se plantean en el capítulo: </p>
-    <ul>
-    <li>Un servicio de Internet asequible. </li>
-    <li>Dispositivos con acceso a Internet adecuados a la edad. </li>
-    <li>Horarios educativos para utilizar Internet y otras tecnologías digitales.</li>
-    <li>Un soporte de calidad e incondicional. </li>
-    </ul>
+
+
+
+        <ul class="timeline timeline-vertical">
+  <li>
+
+    <div class="timeline--circle">        <i></i>
+    </div>
+    <div class="timeline--description">
+      Un servicio de internet asequible. 
+    </div>
+  </li>
+
+  <li>
+    <div class="timeline--circle">        <i></i>
+    </div>
+    <div class="timeline--description">
+     Dispositivos con acceso a internet adecuados a la edad.
+    </div>
+  </li>
+  <li>
+    <div class="timeline--circle">        <i></i>
+    </div>
+    <div class="timeline--description">
+     Horarios educativos para utilizar internet y otras tecnologías digitales.
+    </div>
+  </li>
+  <li>
+    <div class="timeline--circle">        <i></i>
+    </div>
+    <div class="timeline--description">
+     Un soporte de calidad e incondicional.
+    </div>
+  </li>
+
+</ul>
+
       </div>
 
     <iframe width="670" height="350" src="https://www.youtube.com/embed/VoUZsufbLD0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
@@ -299,14 +509,42 @@ header h1 {
     <h1>Uso excesivo de internet</h1>
     <p>¿Pasas largas horas usando internet y dejas de compartir con tus amigos y familiares? ¿Te has preguntado cuándo el uso de internet se vuelve un problema en tu vida o en tu familia? Descubre la historia de Nico, un adolescente experto en juegos en línea, y mira cómo su familia encuentra un camino para sobrepasar las situaciones que se generan por un uso excesivo de internet.</p>
         <p>Conoce aquí algunos tips sobre cómo abordar las diferentes situaciones que se plantean en el capítulo: </p>
-        <ul>
-      <li>Evita la adicción a las redes sociales al limitar las notificaciones. </li>
-      <li>Establece un horario para revisar tus redes. </li>
-      <li>Haz un "detox" o respiro digital, tomate un tiempo para departir en familia con el resto de personas. </li>
-      <li>Elimina las apps de redes sociales de celular o limita el uso de ellas en tiempo. </li>
+
+  <ul class="timeline timeline-vertical">
+  <li>
+
+    <div class="timeline--circle">        <i></i>
+    </div>
+    <div class="timeline--description">
+      Evita la adicción a las redes sociales al limitar las notificaciones. 
+    </div>
+  </li>
+
+  <li>
+    <div class="timeline--circle">        <i></i>
+    </div>
+    <div class="timeline--description">
+     Establece un horario para revisar tus redes.
+    </div>
+  </li>
+  <li>
+    <div class="timeline--circle">        <i></i>
+    </div>
+    <div class="timeline--description">
+    Haz un "detox" o respiro digital, tomate un tiempo para departir en familia con el resto de personas.
+    </div>
+  </li>
+  <li>
+    <div class="timeline--circle">        <i></i>
+    </div>
+    <div class="timeline--description">
+     Elimina las apps de redes sociales de celular o limita el uso de ellas en tiempo.
+    </div>
+  </li>
+</ul>
 
 
-        </ul>
+
       </div>
 
     <iframe width="670" height="350" src="https://www.youtube.com/embed/Z6q2o-NaKI4" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
@@ -322,14 +560,45 @@ header h1 {
     <div class="row">
       <div class="description">
     <h1>Seguridad en línea</h1>
-    <p>¿Te gustaría saber cómo cuidar la información personal de tu hijo en Internet? Descubre junto a Valen, una niña entusiasta, amante de la danza, la importancia de conocer sobre redes sociales, los criterios de seguridad y su potencial en el desarrollo de los intereses de niños, niñas y adolescentes.</p>
+    <p>¿Te gustaría saber cómo cuidar la información personal de tu hijo en internet? Descubre junto a Valen, una niña entusiasta, amante de la danza, la importancia de conocer sobre redes sociales, los criterios de seguridad y su potencial en el desarrollo de los intereses de niños, niñas y adolescentes.</p>
             <p>Conoce aquí algunos tips sobre cómo abordar las diferentes situaciones que se plantean en el capítulo: </p>
-            <ul>
-          <li>Naveguen juntos.</li>
-          <li>Mantén los dispositivos siempre a la vista.</li>
-          <li>Utiliza una tecnología de seguridad como Kaspersky, Safe Kids para cuando no puedas estar cerca ni supervisar en persona cómo utiliza Internet.</li>
-          <li>Limita el tiempo en línea.</li>
-            </ul>
+
+
+  <ul class="timeline timeline-vertical">
+  <li>
+
+    <div class="timeline--circle">        <i></i>
+    </div>
+    <div class="timeline--description">
+      Naveguen juntos.
+    </div>
+  </li>
+
+  <li>
+    <div class="timeline--circle">        <i></i>
+    </div>
+    <div class="timeline--description">
+     Mantén los dispositivos siempre a la vista.
+    </div>
+  </li>
+  <li>
+    <div class="timeline--circle">        <i></i>
+    </div>
+    <div class="timeline--description">
+    Utiliza una tecnología de seguridad como Kaspersky, Safe Kids para cuando no puedas estar cerca ni supervisar en persona cómo utiliza internet.
+    </div>
+  </li>
+  <li>
+    <div class="timeline--circle">        <i></i>
+    </div>
+    <div class="timeline--description">
+     Limita el tiempo en línea.
+    </div>
+  </li>
+</ul>
+
+
+
       </div>
 
     <iframe width="670" height="350" src="https://www.youtube.com/embed/cuwV0gc9Nk0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
