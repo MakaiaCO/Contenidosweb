@@ -215,8 +215,7 @@ button {
 }
 .parallax-headline {
   color: #FFBE00;
-  font: 800  3.75rem/100% "cronos pro";
-  letter-spacing: -0.1rem;
+  font: 800  3rem/100% "cronos pro";
   margin-bottom: 60px;
   text-transform: uppercase;
 }
@@ -232,6 +231,8 @@ button {
   transform-origin: center center;
   width: 100%;
   margin: 0 auto;
+  position: relative;
+  left: 15%;
 }
 
 .screen {
@@ -252,7 +253,7 @@ button {
 .screen p {
   width: 50%;
   color: white;
-  font-size: 1.5rem;
+  font-size: 1.3rem;
 }
 </style>
   <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
@@ -264,6 +265,7 @@ button {
 
   <div class="parallax">
     <div class="parallax-imgwrapper">
+      <img class="parallax-img" src="backpar.png" />
             <img class="parallax-img" src="holi.png" />
       <img class="parallax-img" src="user.png" />
 
@@ -396,18 +398,6 @@ button {
 </div>
   
     <script type="text/javascript">
-    document.addEventListener("mousemove", parallax);
-    function parallax(e){
-      document.querySelectorAll(".object").forEach(function(move){
-
-        var moving_value = move.getAttribute("data-value");
-        var x = (e.clientX * moving_value) / 250;
-        var y = (e.clientY * moving_value) / 250;
-
-        move.style.transform = "translateX(" + x + "px) translateY(" + y + "px)";
-      });
-    }
-
 
 $(".button[data-target]").click(function() {
   $("#" + this.dataset.target).toggleClass("-open")
